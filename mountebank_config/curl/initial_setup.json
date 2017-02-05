@@ -1,0 +1,131 @@
+{
+  "imposters":[
+    {
+      "port":4545,
+      "protocol":"http",
+      "stubs":[
+        {
+          "predicates":[
+            {
+              "equals":{
+                "method":"GET",
+                "path":"/chuck"
+              }
+            }
+          ],
+          "responses":[
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"Chuck Norris writes code that optimizes itself"
+              },
+              "_behaviors":{
+                "wait":0
+              }
+            },
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"If you try to kill -9 Chuck Norris's programs, it backfires."
+              },
+              "_behaviors":{
+                "wait":0
+              }
+            },
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"Chuck Norris knows the last digit of pi."
+              },
+              "_behaviors":{
+                "wait":0
+              }
+            },
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"Chuck Norris can instantiate an abstract class."
+              },
+              "_behaviors":{
+                "wait":0
+              }
+            },
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"Don't worry about tests, Chuck Norris's test cases cover your code too."
+              },
+              "_behaviors":{
+                "wait":0
+              }
+            }
+          ]
+        },
+        {
+          "responses": [
+            {
+              "is": {
+                "statusCode": 404
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port":4546,
+      "protocol":"http",
+      "stubs":[
+        {
+          "predicates":[
+            {
+              "equals":{
+                "method":"GET",
+                "path":"/time"
+              }
+            }
+          ],
+          "responses":[
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body": "${TIME}"
+              },
+              "_behaviors":{
+                "decorate":"function (request, response) { var pad = function (number) { return (number < 10) ? '0' + number : number.toString(); }, now = new Date(), time = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds()); response.body = response.body.replace('${TIME}', time); }",
+                "wait":0
+              }
+            }
+          ]
+        },
+        {
+          "responses": [
+            {
+              "is": {
+                "statusCode": 404
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
