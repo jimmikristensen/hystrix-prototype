@@ -5,3 +5,6 @@ _project.xml
 jmeter.log
 .classpath
 .project
+build/
+bin/
+lib/

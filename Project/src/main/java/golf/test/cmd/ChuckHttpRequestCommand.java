@@ -14,13 +14,13 @@ import com.netflix.hystrix.HystrixCommandKey;
 import com.netflix.hystrix.HystrixCommandProperties;
 import com.netflix.hystrix.HystrixThreadPoolProperties;
 
-public class HttpRequestCommand extends HystrixCommand<Boolean> {
+public class ChuckHttpRequestCommand extends HystrixCommand<String> {
 
 	//Name of the command - shown in the hystrix dashboard
 	public static final String CMD_NAME = "Command1";
 	
 	//Endpoint which the command should access (Downstream service)
-	public static final String CLIENT_ENDPOINT = "http://localhost:4545/test";
+	public static final String CLIENT_ENDPOINT = "http://localhost:4545/chuck";
 	
 	//Thread pool size for handling command requests
 	public static final int THREAD_POOL_SIZE = 15;
@@ -30,7 +30,7 @@ public class HttpRequestCommand extends HystrixCommand<Boolean> {
 
 	private CloseableHttpClient client;
 	
-	public HttpRequestCommand(CloseableHttpClient client) {
+	public ChuckHttpRequestCommand(CloseableHttpClient client) {
 		super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey(CMD_NAME+"-Pool"))
 				.andCommandKey(HystrixCommandKey.Factory.asKey(CMD_NAME))
 				.andThreadPoolPropertiesDefaults(
@@ -42,16 +42,18 @@ public class HttpRequestCommand extends HystrixCommand<Boolean> {
 	}
 
 	@Override
-	protected Boolean run() throws Exception {
+	protected String run() throws Exception {
 		HttpGet get = new HttpGet(CLIENT_ENDPOINT);
+		String stringResponse = "";
 
 		CloseableHttpResponse response = client.execute(get);
 		try {			
 			//Here we could do something useful with the response, but
 			//this is only a prototype, and server does not return anything useful.
-			HttpEntity entity1 = response.getEntity();
+			HttpEntity entity = response.getEntity();
+			stringResponse = EntityUtils.toString(entity, "UTF-8");
 			
-			EntityUtils.consume(entity1); // Ensure response is fully consumed
+			EntityUtils.consume(entity); // Ensure response is fully consumed
 		} finally {
 			try{
 				response.close();
@@ -60,11 +62,11 @@ public class HttpRequestCommand extends HystrixCommand<Boolean> {
 				System.out.println("failed closing response. " + ioe.getMessage());
 			}
 		}
-		return true;
+		return stringResponse;
 	}
 
 	@Override
-	protected Boolean getFallback() {
-		return false;
+	protected String getFallback() {
+		return "Chuck Norris is no longer funny...";
 	}
 }

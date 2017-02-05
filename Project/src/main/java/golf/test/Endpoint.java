@@ -11,10 +11,11 @@ import javax.ws.rs.core.Response.Status;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 
+import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.exception.HystrixRuntimeException;
 
-import golf.test.cmd.HttpRequestCommand;
-import golf.test.cmd.HttpRequestCommand1;
+import golf.test.cmd.ChuckHttpRequestCommand;
+import golf.test.cmd.TimeHttpRequestCommand;
 
 @Path("/hello")
 public class Endpoint {
@@ -25,29 +26,38 @@ public class Endpoint {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response hello() throws ValidationException, InterruptedException {
-		Boolean req = false;
-		Boolean req1 = false;
+		boolean chuckCommandSucceded = true;
+		boolean timeCommandSucceded = true;
+		String chuckReq = null;
+		String timeReq = null;
+		
 		try {
-			HttpRequestCommand cmd = new HttpRequestCommand(http_client);
-			req = cmd.execute();
+			HystrixCommand<String> cmd = new ChuckHttpRequestCommand(http_client);
+			chuckReq = cmd.execute();
 			if (cmd.isSuccessfulExecution() == false) {
 				// If needed we can check if execution went well..
 				// Should be used for optimization of flow - not errorhandling.
 				// Hystrix fallback should handle errors.
 				// System.out.println(cmd.getExecutionException());
+				chuckCommandSucceded = false;
 			}
-			HttpRequestCommand1 cmd1 = new HttpRequestCommand1(http_client);
-			req1 = cmd1.execute();
+			HystrixCommand<String> cmd1 = new TimeHttpRequestCommand(http_client);
+			timeReq = cmd1.execute();
+			if (cmd1.isSuccessfulExecution() == false) {
+				timeCommandSucceded = false;
+			}
 
 		} catch (HystrixRuntimeException e) {
 			if (e.getCause() instanceof InterruptedException) {
 				throw (InterruptedException) e.getCause();
 			}
-			return Response.status(Status.SERVICE_UNAVAILABLE).build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		} catch (Exception e) {
-			return Response.status(Status.SERVICE_UNAVAILABLE).build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
-		String reply = String.format("Hello :) First command succeeded: %b. Second command succeded: %b", req, req1); 
+		
+		String reply = String.format("Chuck command secceded: %b\n Time command succeded: %b\n"
+				+ "Time: %s\nChuck says: %s", chuckCommandSucceded, timeCommandSucceded, timeReq, chuckReq);
 		return Response.ok(reply, MediaType.TEXT_PLAIN_TYPE).build();
 	}
 
