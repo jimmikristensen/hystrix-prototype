@@ -10,14 +10,21 @@ The prototype is a very basic implementation of a web application, which uses Hy
 
 The Hystrix commands will execute 2 HTTP GET requests to two different URLS, which should be controlled by mountebank and can be manipulated by sending HTTP requests to the mountebank server.
 
+The following sections will explain the setup of the specific components.
+
+* Setting up and configuring Mountebank.
+* Setting up Hystrix Dashboard.
+* Running the prototype Java application.
+* Putting load on the prototype.
+
 ## Prerequisites
+
+* Eclipse with Jetty or Tomcat support.
+* Docker for running Mountebank and Hystrix Dashboard.
+* CURL or Postman for configuring Mountebank.
+* JMeter or Apache Benchmark for putting load on the prototype.
+
 This guide assumes that the developer has knowledge about eclipse and project handling.
-
-The following sections will explain the setup of the specific components. 
-
-* Setting up and configuring Mountebank
-* Setting up Hystrix Dashboard
-* Running the demo Java application
 
 ## Setting up and configuring Mountebank:
 
