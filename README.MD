@@ -1,6 +1,7 @@
 # Hystrix Prototype
 
 The purpose of this prototype is to gain experience with Hystrix as a circuit breaker pattern in distributed architecture. We achieve this by:
+
 1. Wrapping calls to downstream services in Hystrix commands to simulate.
 2. Using Mountebank to control latency of downstream services.
 3. Using JMeter or Apache Benchmark to put load on the prototype.
