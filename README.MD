@@ -1,16 +1,15 @@
 # Hystrix Prototype
 
-The purpose of this prototype is to: 1. Gain more experience with distributed architecture. 
-2. Use Hystrix commands to simulate calls to downstream services in a microservice
-architecture and finally 3. Use Mountebank to control latency of downstream services. 
+The purpose of this prototype is to gain experience with Hystrix as a circuit breaker pattern in distributed architecture. We achieve this by:
+1. Wrapping calls to downstream services in Hystrix commands to simulate.
+2. Using Mountebank to control latency of downstream services.
+3. Using JMeter or Apache Benchmark to put load on the prototype.
 
-The prototype is a very basic implementation of a web project in eclipse, which uses
-Hystrix Commands to handle requests. The web server exposes Hystrix metrics which can 
-be used for displaying progress in a Hystrix dashboard.
-The Hystrix commands will execute 2 HTTP GET requests to two different urls, which should
-be controlled by mountebank and can be manipulated by sending HTTP requests to the 
-mountebank server.
+The prototype is a very basic implementation of a web application, which uses Hystrix Commands to wrap HTTP requests. The web server exposes Hystrix metrics which can be used for monitoring the HTTP requests and the state of the circuit breaker in a Hystrix dashboard.
 
+The Hystrix commands will execute 2 HTTP GET requests to two different URLS, which should be controlled by mountebank and can be manipulated by sending HTTP requests to the mountebank server.
+
+## Prerequisites
 This guide assumes that the developer has knowledge about eclipse and project handling.
 
 The following sections will explain the setup of the specific components. 
