@@ -42,8 +42,9 @@ __Use Postman or cURL to configure Mountebank as described below:__
 
 * Postman is an application used for sending HTTP requests
 * Download and install Postman: https://www.getpostman.com/
-* Import the Postman collection __mountebank_config/postman/HystrixPrototype.postman_collection__
-	* click the _Import_ button located in the upper left side of the window
+* Import the Postman collection:
+	* Click the _Import_ button located in the upper left side of the window and import the collection located here:
+		* __mountebank_config/postman/HystrixPrototype.postman_collection__
 	* You should now see _3 imported_ HTTP requests
 * Send the request named __[Stub] Initial setup__ to setup Mountebank the first time
 
@@ -55,8 +56,8 @@ __Use Postman or cURL to configure Mountebank as described below:__
 ### Verify the stubs are running
 
 You should now have created two stubs on ports 4545 and 4546:
-* Quotes service stub: http://localhost:4545/quotes
-* Time service stub: http://localhost:4546/time
+* Quotes service stub: [http://localhost:4545/quotes](http://localhost:4545/quotes)
+* Time service stub: [http://localhost:4546/time](http://localhost:4546/time)
 
 ## Setting up Hystrix Dashboard
 
