@@ -17,6 +17,8 @@ The following sections will explain the setup of the specific components.
 * [Running the prototype Java application](running-the-prototype-java-application)
 * [Putting load on the prototype](putting-load-on-the-prototype)
 
+Find links to the resources used in this manual in the [references section](references)
+
 ## Prerequisites
 
 * [Eclipse](#references) with [Jetty](#references) or Tomcat support.
@@ -65,18 +67,15 @@ You should now have created two stubs on ports 4545 and 4546:
 
 ## Setting up Hystrix Dashboard
 
-Install a hystrix dashboard by executing following docker command:
+Install a Hystrix Dashboard by executing following docker command:
+
+```bash
 docker run -d -p 8081:9002 --name hystrix-dashboard mlabouardy/hystrix-dashboard:latest
+```
 
-It is possible to use a different port than 8081, but 9002 should not be changed. The rest 
-of the guide will use port 8081.
+Find more information about the Hystrix Dashboard in the [References section](references).
 
-Find more information about the hystrix dashboard in the following url
-https://github.com/Netflix/Hystrix/wiki/Dashboard
-
-Verify that the hystrix dashboard works by accessing http://localhost:8081/hystrix
-
-
+Verify that the hystrix dashboard works by accessing [http://localhost:8081/hystrix](http://localhost:8081/hystrix)
 
 # Eclipse project:
 
@@ -132,11 +131,12 @@ Contains timeout values for the HTTP client used for accessing the imposters
 * Eclipse [https://eclipse.org/](https://eclipse.org/)
 * Eclipse Jetty Integration [http://eclipse-jetty.github.io/](http://eclipse-jetty.github.io/)
 * Hystrix Wiki [https://github.com/Netflix/Hystrix/wiki](https://github.com/Netflix/Hystrix/wiki)
+* Hystrix Dashboard [https://github.com/Netflix/Hystrix/wiki/Dashboard](https://github.com/Netflix/Hystrix/wiki/Dashboard)
 * Docker [https://docs.docker.com/](https://docs.docker.com/)
 * Mountebank [http://www.mbtest.org/](http://www.mbtest.org/)
 	* Getting started [http://www.mbtest.org/docs/gettingStarted](http://www.mbtest.org/docs/gettingStarted)
+* Mountebank Docker Image [https://hub.docker.com/r/jkris/mountebank/](https://hub.docker.com/r/jkris/mountebank/)
 * JMeter [http://jmeter.apache.org/](http://jmeter.apache.org/)
 * Apache Benchmark [https://httpd.apache.org/docs/2.4/programs/ab.html](https://httpd.apache.org/docs/2.4/programs/ab.html)
 * Postman [https://www.getpostman.com/](https://www.getpostman.com/)
 * curl [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html)
-* Mountebank Docker Image [https://hub.docker.com/r/jkris/mountebank/](https://hub.docker.com/r/jkris/mountebank/)
