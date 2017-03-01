@@ -30,10 +30,8 @@ This guide assumes that the developer has knowledge about eclipse and project ha
 
 A docker image can be used for setting up the Mountebank server:
 
+```bash
 docker run -p 2525:2525 -p 4545:4545 -p 4546:4546 -d jkris/mountebank:latest --allowInjection
-
-```{r, engine='bash', count_lines}
-wc -l en_US.twitter.txt 
 ```
 
 For more info, visit the link below:
