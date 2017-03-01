@@ -1,101 +1,50 @@
 {
-	"id": "3524fdb8-bfc0-c1c8-925c-0979bb7304ce",
-	"name": "HystrixPrototype",
-	"description": "",
-	"order": [
-		"04568118-37f1-012b-8075-c0d80fad8cc5",
-		"399cf82a-a407-49c8-52c6-02ff66f04743",
-		"1b991226-ffdc-f152-cffc-c601eef48293",
-		"4788bcab-5656-c896-a8f7-c58d5ae0201a"
-	],
-	"folders": [],
-	"timestamp": 1479217309160,
-	"owner": 0,
-	"public": false,
-	"hasRequests": true,
-	"requests": [
+	"variables": [],
+	"info": {
+		"name": "HystrixPrototype",
+		"_postman_id": "1f7d77a7-79f7-270a-44a8-d4d4b2ac0da8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "04568118-37f1-012b-8075-c0d80fad8cc5",
-			"headers": "",
-			"url": "http://localhost:8080/v1/hello",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "3524fdb8-bfc0-c1c8-925c-0979bb7304ce",
-			"data": null,
-			"dataMode": "params",
 			"name": "http://localhost:8080/v1/hello",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1479217574175,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
+			"request": {
+				"url": "http://localhost:8080/v1/hello",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		},
 		{
-			"id": "1b991226-ffdc-f152-cffc-c601eef48293",
-			"headers": "",
-			"url": "http://localhost:2525/imposters",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "3524fdb8-bfc0-c1c8-925c-0979bb7304ce",
-			"data": [],
-			"dataMode": "raw",
-			"name": "http://localhost:2525/imposters",
-			"description": "Create imposter port 4545 - 1000 ms wait",
-			"descriptionFormat": "html",
-			"time": 1479217696596,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n  \"port\": 4545,\n  \"protocol\": \"http\",\n  \"stubs\": [{\n    \"responses\": [\n      { \"is\": { \"statusCode\": 201 },\n      \"_behaviors\": {\n            \"wait\": 1000\n          }}\n    ],\n    \"predicates\": [{\n      \"and\": [\n        {\n          \"equals\": {\n            \"path\": \"/test\",\n            \"method\": \"GET\"\n          }\n        },\n        {\n          \"not\": {\n            \"contains\": {\n              \"body\": \"requiredField\"\n            },\n            \"caseSensitive\": true\n          }\n        }\n      ]\n    }]\n  }]\n}"
+			"name": "[Stub] Simulate slow response",
+			"request": {
+				"url": "http://localhost:2525/imposters",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"imposters\":[\n    {\n      \"port\":4545,\n      \"protocol\":\"http\",\n      \"stubs\":[\n        {\n          \"predicates\":[\n            {\n              \"equals\":{\n                \"method\":\"GET\",\n                \"path\":\"/quotes\"\n              }\n            }\n          ],\n          \"responses\":[\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"If debugging is the process of removing software bugs, then programming must be the process of putting them in. - Edsger Dijkstra\"\n              },\n              \"_behaviors\":{\n                \"wait\":1000\n              }\n            },\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"Any fool can write code that a computer can understand. Good programmers write code that humans can understand. - Martin Fowler\"\n              },\n              \"_behaviors\":{\n                \"wait\":1000\n              }\n            },\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult. - C.A.R. Hoare\"\n              },\n              \"_behaviors\":{\n                \"wait\":1000\n              }\n            },\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"Program testing can be used to show the presence of bugs, but never to show their absence! - Edsger Dijkstra\"\n              },\n              \"_behaviors\":{\n                \"wait\":1000\n              }\n            },\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification. - Bertrand Meyer\"\n              },\n              \"_behaviors\":{\n                \"wait\":1000\n              }\n            }\n          ]\n        },\n        {\n          \"responses\": [\n            {\n              \"is\": {\n                \"statusCode\": 404\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"port\":4546,\n      \"protocol\":\"http\",\n      \"stubs\":[\n        {\n          \"predicates\":[\n            {\n              \"equals\":{\n                \"method\":\"GET\",\n                \"path\":\"/time\"\n              }\n            }\n          ],\n          \"responses\":[\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\": \"${TIME}\"\n              },\n              \"_behaviors\":{\n                \"decorate\":\"function (request, response) { var pad = function (number) { return (number < 10) ? '0' + number : number.toString(); }, now = new Date(), time = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds()); response.body = response.body.replace('${TIME}', time); }\",\n                \"wait\":200\n              }\n            }\n          ]\n        },\n        {\n          \"responses\": [\n            {\n              \"is\": {\n                \"statusCode\": 404\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"description": "Update imposter on port 4545 - 1000 ms wait"
+			},
+			"response": []
 		},
 		{
-			"id": "399cf82a-a407-49c8-52c6-02ff66f04743",
-			"headers": "",
-			"url": "http://localhost:2525/imposters",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "3524fdb8-bfc0-c1c8-925c-0979bb7304ce",
-			"data": [],
-			"dataMode": "raw",
-			"name": "http://localhost:2525/imposters",
-			"description": "Create imposter port 4546 - 200 ms delay",
-			"descriptionFormat": "html",
-			"time": 1479217630766,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n  \"port\": 4546,\n  \"protocol\": \"http\",\n  \"stubs\": [{\n    \"responses\": [\n      { \"is\": { \"statusCode\": 201 },\n      \"_behaviors\": {\n            \"wait\": 200\n          }}\n    ],\n    \"predicates\": [{\n      \"and\": [\n        {\n          \"equals\": {\n            \"path\": \"/test\",\n            \"method\": \"GET\"\n          }\n        },\n        {\n          \"not\": {\n            \"contains\": {\n              \"body\": \"requiredField\"\n            },\n            \"caseSensitive\": true\n          }\n        }\n      ]\n    }]\n  }]\n}"
-		},
-		{
-			"id": "4788bcab-5656-c896-a8f7-c58d5ae0201a",
-			"headers": "",
-			"url": "http://localhost:2525/imposters",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "PUT",
-			"collectionId": "3524fdb8-bfc0-c1c8-925c-0979bb7304ce",
-			"data": [],
-			"dataMode": "raw",
-			"name": "Initial setup",
-			"description": "Updated already existing imposters - remember to change the wait parameter",
-			"descriptionFormat": "html",
-			"time": 1479220721009,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n  \"imposters\": [\n    {\n  \"port\": 4545,\n  \"protocol\": \"http\",\n  \"stubs\": [{\n    \"responses\": [\n      { \"is\": { \"statusCode\": 201 },\n      \"_behaviors\": {\n            \"wait\": 2000\n          }}\n    ],\n    \"predicates\": [{\n      \"and\": [\n        {\n          \"equals\": {\n            \"path\": \"/test\",\n            \"method\": \"GET\"\n          }\n        },\n        {\n          \"not\": {\n            \"contains\": {\n              \"body\": \"requiredField\"\n            },\n            \"caseSensitive\": true\n          }\n        }\n      ]\n    }]\n  }]\n},\n    {\n  \"port\": 4546,\n  \"protocol\": \"http\",\n  \"stubs\": [{\n    \"responses\": [\n      { \"is\": { \"statusCode\": 201 },\n      \"_behaviors\": {\n            \"wait\": 2000\n          }}\n    ],\n    \"predicates\": [{\n      \"and\": [\n        {\n          \"equals\": {\n            \"path\": \"/test\",\n            \"method\": \"GET\"\n          }\n        },\n        {\n          \"not\": {\n            \"contains\": {\n              \"body\": \"requiredField\"\n            },\n            \"caseSensitive\": true\n          }\n        }\n      ]\n    }]\n  }]\n}\n  ]\n}"
+			"name": "[Stub] Initial setup",
+			"request": {
+				"url": "http://localhost:2525/imposters",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"imposters\":[\n    {\n      \"port\":4545,\n      \"protocol\":\"http\",\n      \"stubs\":[\n        {\n          \"predicates\":[\n            {\n              \"equals\":{\n                \"method\":\"GET\",\n                \"path\":\"/quotes\"\n              }\n            }\n          ],\n          \"responses\":[\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"If debugging is the process of removing software bugs, then programming must be the process of putting them in. - Edsger Dijkstra\"\n              },\n              \"_behaviors\":{\n                \"wait\":0\n              }\n            },\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"Any fool can write code that a computer can understand. Good programmers write code that humans can understand. - Martin Fowler\"\n              },\n              \"_behaviors\":{\n                \"wait\":0\n              }\n            },\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult. - C.A.R. Hoare\"\n              },\n              \"_behaviors\":{\n                \"wait\":0\n              }\n            },\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"Program testing can be used to show the presence of bugs, but never to show their absence! - Edsger Dijkstra\"\n              },\n              \"_behaviors\":{\n                \"wait\":0\n              }\n            },\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\":\"Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification. - Bertrand Meyer\"\n              },\n              \"_behaviors\":{\n                \"wait\":0\n              }\n            }\n          ]\n        },\n        {\n          \"responses\": [\n            {\n              \"is\": {\n                \"statusCode\": 404\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"port\":4546,\n      \"protocol\":\"http\",\n      \"stubs\":[\n        {\n          \"predicates\":[\n            {\n              \"equals\":{\n                \"method\":\"GET\",\n                \"path\":\"/time\"\n              }\n            }\n          ],\n          \"responses\":[\n            {\n              \"is\":{\n                \"statusCode\":200,\n                \"headers\":{\n                  \"Content-Type\":\"text/plain\"\n                },\n                \"body\": \"${TIME}\"\n              },\n              \"_behaviors\":{\n                \"decorate\":\"function (request, response) { var pad = function (number) { return (number < 10) ? '0' + number : number.toString(); }, now = new Date(), time = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds()); response.body = response.body.replace('${TIME}', time); }\",\n                \"wait\":0\n              }\n            }\n          ]\n        },\n        {\n          \"responses\": [\n            {\n              \"is\": {\n                \"statusCode\": 404\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"description": "Updated already existing imposters - remember to change the wait parameter"
+			},
+			"response": []
 		}
 	]
 }
