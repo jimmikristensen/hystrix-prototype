@@ -19,8 +19,8 @@ The following sections will explain the setup of the specific components.
 
 ## Prerequisites
 
-* Eclipse with Jetty or Tomcat support.
-* [Docker](#references) for running Mountebank and Hystrix Dashboard.
+* [Eclipse](#references) with [Jetty](#references) or Tomcat support.
+* [Docker](#references) for running [Mountebank](#references) and [Hystrix](#references) Dashboard.
 * [CURL](#references) or Postman for configuring Mountebank.
 * [JMeter](#references) or [Apache Benchmark](#references) for putting load on the prototype.
 
@@ -117,13 +117,12 @@ Contains timeout values for the HTTP client used for accessing the imposters
 
 # References
 
+* Eclipse [https://eclipse.org/](https://eclipse.org/)
+* Eclipse Jetty Integration [http://eclipse-jetty.github.io/](http://eclipse-jetty.github.io/)
 * Hystrix Wiki [https://github.com/Netflix/Hystrix/wiki](https://github.com/Netflix/Hystrix/wiki)
 * Docker [https://docs.docker.com/](https://docs.docker.com/)
 * Mountebank [http://www.mbtest.org/](http://www.mbtest.org/)
-* JMeter [jmeter.apache.org](jmeter.apache.org)
+* JMeter [http://jmeter.apache.org/](http://jmeter.apache.org/)
 * Apache Benchmark [https://httpd.apache.org/docs/2.4/programs/ab.html](https://httpd.apache.org/docs/2.4/programs/ab.html)
 * Postman [https://www.getpostman.com/](https://www.getpostman.com/)
 * curl [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html)
-
-
-
