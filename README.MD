@@ -46,14 +46,17 @@ __Use Postman or cURL to configure Mountebank as described below:__
 	* click the _Import_ button located in the upper left side of the window
 	* You should now see _3 imported_ HTTP requests
 * Send the request named __[Stub] Initial setup__ to setup Mountebank the first time
-	* This will create two stubs on ports 4545 and 4546:
-	* Quotes service stub: _http://localhost:4545/quotes_
-	* Time service stub: _http://localhost:4546/time_
 
 ### Or configure using cURL
 * Open a console and cd to the “mountebank_config/curl” folder
 * Run the command:
 ** curl -X PUT -d @initial_setup.json http://localhost:2525/imposters
+
+### Verify the stubs are running
+
+You should now have created two stubs on ports 4545 and 4546:
+* Quotes service stub: http://localhost:4545/quotes
+* Time service stub: http://localhost:4546/time
 
 ## Setting up Hystrix Dashboard
 
