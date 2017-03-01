@@ -17,7 +17,7 @@ The following sections will explain the setup of the specific components.
 * [Running the prototype Java application](running-the-prototype-java-application)
 * [Putting load on the prototype](putting-load-on-the-prototype)
 
-Find links to the resources used in this manual in the [references section](references)
+Find links to the resources used in this manual in the [references section](#references)
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ Install a Hystrix Dashboard by executing following docker command:
 docker run -d -p 8081:9002 --name hystrix-dashboard mlabouardy/hystrix-dashboard:latest
 ```
 
-Find more information about the Hystrix Dashboard in the [References section](references).
+Find more information about the Hystrix Dashboard in the [References section](#references).
 
 Verify that the hystrix dashboard works by accessing [http://localhost:8081/hystrix](http://localhost:8081/hystrix)
 
