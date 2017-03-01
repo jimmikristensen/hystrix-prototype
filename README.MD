@@ -49,9 +49,13 @@ __Use Postman or cURL to configure Mountebank as described below:__
 * Send the request named __[Stub] Initial setup__ to setup Mountebank the first time
 
 ### Or configure using cURL
-* Open a console and cd to the “mountebank_config/curl” folder
-* Run the command:
-** curl -X PUT -d @initial_setup.json http://localhost:2525/imposters
+
+Open a terminal in the root directory of the project and run the following commands:
+
+```bash
+cd mountebank_config/curl
+curl -X PUT -d @initial_setup.json http://localhost:2525/imposters
+```
 
 ### Verify the stubs are running
 
