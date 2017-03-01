@@ -34,11 +34,9 @@ A docker image can be used for setting up the Mountebank server:
 docker run -p 2525:2525 -p 4545:4545 -p 4546:4546 -d jkris/mountebank:latest --allowInjection
 ```
 
-For more info, visit [http://www.mbtest.org/docs/gettingStarted](http://www.mbtest.org/docs/gettingStarted)
+Access the mountebank server at: __http://localhost:2525__
 
-Access the mountebank server at: _http://localhost:2525_
-
-Use Postman or cURL to configure Mountebank as described below:
+**Use Postman or cURL to configure Mountebank as described below:__
 
 ### Configure using Postman
 
@@ -125,6 +123,7 @@ Contains timeout values for the HTTP client used for accessing the imposters
 * Hystrix Wiki [https://github.com/Netflix/Hystrix/wiki](https://github.com/Netflix/Hystrix/wiki)
 * Docker [https://docs.docker.com/](https://docs.docker.com/)
 * Mountebank [http://www.mbtest.org/](http://www.mbtest.org/)
+** Getting started [http://www.mbtest.org/docs/gettingStarted](http://www.mbtest.org/docs/gettingStarted)
 * JMeter [http://jmeter.apache.org/](http://jmeter.apache.org/)
 * Apache Benchmark [https://httpd.apache.org/docs/2.4/programs/ab.html](https://httpd.apache.org/docs/2.4/programs/ab.html)
 * Postman [https://www.getpostman.com/](https://www.getpostman.com/)
