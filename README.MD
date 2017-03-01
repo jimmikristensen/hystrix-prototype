@@ -13,9 +13,9 @@ The Hystrix commands will execute 2 HTTP GET requests to two different URLS, whi
 The following sections will explain the setup of the specific components.
 
 * [Setting up and configuring Mountebank](#setting-up-and-configuring-mountebank)
-* Setting up Hystrix Dashboard.
-* Running the prototype Java application.
-* Putting load on the prototype.
+* [Setting up Hystrix Dashboard](#setting-up-hystrix-dashboard)
+* [Running the prototype Java application](running-the-prototype-java-application)
+* [Putting load on the prototype](putting-load-on-the-prototype)
 
 ## Prerequisites
 
