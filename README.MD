@@ -43,8 +43,8 @@ __Use Postman or cURL to configure Mountebank as described below:__
 * Postman is an application used for sending HTTP requests
 * Download and install Postman: https://www.getpostman.com/
 * Import the Postman collection:
-	* ```bash
-Prototype.postman_collection
+```bash
+mountebank_config/postman/HystrixPrototype.postman_collection
 ```
 	* click the 'Import' button located in the upper left side of the window
 	* You should now see 4 imported HTTP requests
