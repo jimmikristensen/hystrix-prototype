@@ -34,17 +34,17 @@ A docker image can be used for setting up the Mountebank server:
 docker run -p 2525:2525 -p 4545:4545 -p 4546:4546 -d jkris/mountebank:latest --allowInjection
 ```
 
-Access the mountebank server at: __http://localhost:2525__
+Access the mountebank server at: [http://localhost:2525](http://localhost:2525)
 
-**Use Postman or cURL to configure Mountebank as described below:__
+__Use Postman or cURL to configure Mountebank as described below:__
 
 ### Configure using Postman
 
 * Postman is an application used for sending HTTP requests
 * Download and install Postman: https://www.getpostman.com/
 * Import the Postman collection “Prototype.postman_collection” located in the “postman” folder
-** click the 'Import' button located in the upper left side of the window
-** You should now see 4 imported HTTP requests
+.* click the 'Import' button located in the upper left side of the window
+.* You should now see 4 imported HTTP requests
 * Send the request named “Initial setup” to setup Mountebank the first time
 
 ### Configure using cURL
