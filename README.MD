@@ -2,7 +2,7 @@
 
 The purpose of this prototype is to gain experience with Hystrix as a circuit breaker pattern in distributed architecture. We achieve this by:
 
-1. Wrapping calls to downstream services in Hystrix commands to simulate.
+1. Wrapping HTTP calls to downstream services in Hystrix commands.
 2. Using Mountebank to control latency of downstream services.
 3. Using JMeter or Apache Benchmark to put load on the prototype.
 
@@ -20,9 +20,9 @@ The following sections will explain the setup of the specific components.
 ## Prerequisites
 
 * Eclipse with Jetty or Tomcat support.
-* Docker for running Mountebank and Hystrix Dashboard.
-* CURL or Postman for configuring Mountebank.
-* JMeter or Apache Benchmark for putting load on the prototype.
+* [Docker](#references) for running Mountebank and Hystrix Dashboard.
+* [CURL](#references) or Postman for configuring Mountebank.
+* [JMeter](#references) or [Apache Benchmark](#references) for putting load on the prototype.
 
 This guide assumes that the developer has knowledge about eclipse and project handling.
 
@@ -115,6 +115,15 @@ Contains thread pool settings for the HTTP client library
 CloseableHttpClientFactory
 Contains timeout values for the HTTP client used for accessing the imposters
 
+# References
+
+* Hystrix Wiki [https://github.com/Netflix/Hystrix/wiki](https://github.com/Netflix/Hystrix/wiki)
+* Docker [https://docs.docker.com/](https://docs.docker.com/)
+* Mountebank [http://www.mbtest.org/](http://www.mbtest.org/)
+* JMeter [jmeter.apache.org](jmeter.apache.org)
+* Apache Benchmark [https://httpd.apache.org/docs/2.4/programs/ab.html](https://httpd.apache.org/docs/2.4/programs/ab.html)
+* Postman [https://www.getpostman.com/](https://www.getpostman.com/)
+* curl [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html)
 
 
 
