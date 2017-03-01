@@ -42,13 +42,8 @@ __Use Postman or cURL to configure Mountebank as described below:__
 
 * Postman is an application used for sending HTTP requests
 * Download and install Postman: https://www.getpostman.com/
-* Import the Postman collection:
-
-```bash
-mountebank_config/postman/HystrixPrototype.postman_collection
-```
-
-	* click the 'Import' button located in the upper left side of the window
+* Import the Postman collection __mountebank_config/postman/HystrixPrototype.postman_collection__
+	* click the _Import_ button located in the upper left side of the window
 	* You should now see 4 imported HTTP requests
 * Send the request named “Initial setup” to setup Mountebank the first time
 
