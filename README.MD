@@ -44,9 +44,11 @@ __Use Postman or cURL to configure Mountebank as described below:__
 * Download and install Postman: https://www.getpostman.com/
 * Import the Postman collection __mountebank_config/postman/HystrixPrototype.postman_collection__
 	* click the _Import_ button located in the upper left side of the window
-	* You should now see __3__ imported HTTP requests
+	* You should now see _3 imported_ HTTP requests
 * Send the request named __[Stub] Initial setup__ to setup Mountebank the first time
-	* This will create two stubs in ports 4545 and 4546
+	* This will create two stubs on ports 4545 and 4546:
+	* Quotes service stub: _http://localhost:4545/quotes_
+	* Time service stub: _http://localhost:4546/time_
 
 ### Or configure using cURL
 * Open a console and cd to the “mountebank_config/curl” folder
