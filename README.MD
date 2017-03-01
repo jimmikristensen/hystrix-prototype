@@ -21,7 +21,7 @@ The following sections will explain the setup of the specific components.
 
 * [Eclipse](#references) with [Jetty](#references) or Tomcat support.
 * [Docker](#references) for running [Mountebank](#references) and [Hystrix](#references) Dashboard.
-* [CURL](#references) or Postman for configuring Mountebank.
+* [CURL](#references) or [Postman](#references) for configuring Mountebank.
 * [JMeter](#references) or [Apache Benchmark](#references) for putting load on the prototype.
 
 This guide assumes that the developer has knowledge about eclipse and project handling.
@@ -32,13 +32,13 @@ A docker image can be used for setting up the Mountebank server:
 docker run -p 2525:2525 -p 4545:4545 -p 4546:4546 -d jkris/mountebank:latest --allowInjection
 
 For more info, visit the link below:
-http://www.mbtest.org/docs/gettingStarted
+[http://www.mbtest.org/docs/gettingStarted](http://www.mbtest.org/docs/gettingStarted)
 
-Access the mountebank server at: http://localhost:2525
-
-Use Postman or cURL to configure Mountebank as described below:
+Access the mountebank server at: *http://localhost:2525*
 
 ### Configure using Postman
+Use Postman or cURL to configure Mountebank as described below:
+
 * Postman is an application used for sending HTTP requests
 * Download and install Postman: https://www.getpostman.com/
 * Import the Postman collection “Prototype.postman_collection” located in the “postman” folder
@@ -126,3 +126,4 @@ Contains timeout values for the HTTP client used for accessing the imposters
 * Apache Benchmark [https://httpd.apache.org/docs/2.4/programs/ab.html](https://httpd.apache.org/docs/2.4/programs/ab.html)
 * Postman [https://www.getpostman.com/](https://www.getpostman.com/)
 * curl [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html)
+* Mountebank Docker Image [https://hub.docker.com/r/jkris/mountebank/](https://hub.docker.com/r/jkris/mountebank/)
