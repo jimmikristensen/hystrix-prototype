@@ -56,7 +56,7 @@ public class Endpoint {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
 		
-		String reply = String.format("%-24s: %b\n%-24s: %b\n%-6s: %s\n%-6s: %s", 
+		String reply = String.format("%-24s: %b\n%-24s: %b\n%-6s: %s\n%-6s: %s\n", 
 				"Quites command secceded",
 				quotesCommandSucceded, 
 				"Time command succeded",
