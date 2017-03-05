@@ -122,10 +122,13 @@ You should now have a _HystrixPrototype_ project in the project explorer.
 
 ## Running the Prototype
 
+The project can be run with Tomcat or Jetty. This guide uses Jetty.
 
+The prototype application can be run from within __eclipse__ or from the __command line__ using gradle.
 
-The project can be run with Tomcat or Jetty. It has been tested with Jetty, which can 
-be installed in eclipse using this guide: [http://eclipse-jetty.github.io](http://eclipse-jetty.github.io)
+### Running from Eclipse
+
+Running from eclipse requires a Jetty plugin, which can be installed in eclipse using this guide: [http://eclipse-jetty.github.io](http://eclipse-jetty.github.io)
 
 Once the Jetty plugin is installed do the following in eclipse:
 
@@ -136,13 +139,17 @@ Once the Jetty plugin is installed do the following in eclipse:
 * Make sure you select port _8080_ for your application
 * Click _Run_
 
-The endpoint for accessing the server endpoint is: http://localhost:8080/v1/hello.
-This of course depends on the port, which is configured in the run configuration in
-eclipse. 
+The endpoint for accessing the server endpoint is: [http://localhost:8080/v1/hello](http://localhost:8080/v1/hello). This of course depends on the port, which is configured in the run configuration in eclipse. 
 
+### Running from Command Line using Gradle
 
+```bash
+# change to the project root directory
+cd Prototype
+./gradlew jettyRun
+```
 
-
+This uses the project files and deploys them to Jetty. Running this way will make the endpoint available here: [http://localhost:8080/HystrixPrototype/v1/hello](http://localhost:8080/HystrixPrototype/v1/hello)
 
 TESTING THE SETUP:
 
