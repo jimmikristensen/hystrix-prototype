@@ -79,14 +79,30 @@ Verify that the hystrix dashboard works by accessing [http://localhost:8081/hyst
 
 # Hystrix Prototype Project:
 
-The prototype application is located in the __Prototype__ directory. The application used [Gradle](#references) as the build and dependency management tool and can be imported into eclipse in two ways:
+The prototype application is located in the __Prototype__ directory. The application uses [Gradle](#references) as the build and dependency management tool and can be imported into eclipse in two ways:
 
-* [Import existing project](#import-existing-project)
 * [Import gradle project](#import-gradle-project)
+* [Import existing project](#import-existing-project)
+
+## Import gradle project
+
+Using the eclipse gradle-plugin to import the project, gradle will automatically take care of dependencies and you will be able to run gradle commands directly from eclipse.
+
+Open eclipse:
+
+* Help -> Eclipse Marketplace
+* Search for _Buildship Gradle Integration 2.0_ and install it
+
+When eclipse has restarted, import the project:
+
+* File -> Import
+* Gradle -> Existing Gradle Project
+* Browse for the _Prototype_ projects root dir and click _Open_
+* Click _Finish_
 
 ## Import existing project
 
-Before importing the project into eclipse, you need to generate the eclipse .project file. This is done using gradle, run the following command:
+Before importing the project into eclipse, you need to generate the eclipse .project file. This is done using the gradle wrappe - run the following command:
 
 ```bash
 # change to the project root directory
@@ -96,14 +112,29 @@ cd Prototype
 
 _If you are on a windows machine, use the gradlew.bat file instead._
 
+Open eclipse:
+
+* File -> Import
+* General -> Existing projects into Workspace
+* Browse for the _Prototype_ projects root dir and click __Open__
+
+You should now have a _HystrixPrototype_ project in the project explorer.
+
+## Running the Prototype
 
 
-## Import gradle project
 
-The project can be run with tomcat or Jetty. It has been tested with Jetty, which can 
-be installed in eclipse using this guide: http://eclipse-jetty.github.io/
+The project can be run with Tomcat or Jetty. It has been tested with Jetty, which can 
+be installed in eclipse using this guide: [http://eclipse-jetty.github.io](http://eclipse-jetty.github.io)
 
-Start the Jetty/Tomcat server on port 8080.
+Once the Jetty plugin is installed do the following in eclipse:
+
+* Right click on the project
+* Run As -> Run Configuration
+* Right click _Jetty Webapp_ and select _New_
+* To tell eclipse where to find the webapp dir, click the _Scan_ button
+* Make sure you select port _8080_ for your application
+* Click _Run_
 
 The endpoint for accessing the server endpoint is: http://localhost:8080/v1/hello.
 This of course depends on the port, which is configured in the run configuration in
@@ -159,3 +190,4 @@ Contains timeout values for the HTTP client used for accessing the imposters
 * Postman [https://www.getpostman.com/](https://www.getpostman.com/)
 * curl [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html)
 * Gradle [https://gradle.org/](https://gradle.org/)
+* Gradle plugin for Eclipse [http://www.vogella.com/tutorials/EclipseGradle/article.html](http://www.vogella.com/tutorials/EclipseGradle/article.html#installation-via-the-marketplace)
