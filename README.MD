@@ -163,7 +163,7 @@ Start the prototype application via __eclipse__ or __command line__. The applica
 * Eclipse: [http://localhost:8080/v1/hello](http://localhost:8080/v1/hello)
 * Command Line: [http://localhost:8080/HystrixPrototype/v1/hello](http://localhost:8080/HystrixPrototype/v1/hello)
 
-Try accessing it through __Postman__ or curl:
+Try accessing it through __Postman__ or __curl__:
 
 ```bash
 curl http://localhost:8080/HystrixPrototype/v1/hello
@@ -171,9 +171,15 @@ curl http://localhost:8080/HystrixPrototype/v1/hello
 
 __Monitor circuit health through dashboard__
 
-Access the hystrix dashboard [http://localhost:8081/hystrix](http://localhost:8081/hystrix)
+Access the hystrix dashboard [http://localhost:8081/hystrix](http://localhost:8081/hystrix) and add the hystrix stream URL depending on how you started the prototype.
 
-http://192.168.1.14:8080/HystrixPrototype/hystrix.stream
+* Eclipse: http://192.168.1.14:8080/hystrix.stream
+* Command Line: http://192.168.1.14:8080/HystrixPrototype/hystrix.stream
+
+Click the _Monitor Stream_ button. Try sending some requests to the prototype URL and you should see two circuits (Command1 and Command2) both receiving requests and both in _Closed_ state.
+
+> If you see the message _Unable to connect to Command Metric Stream._ your application is not started or you added the wrong hystrix.stream URL.
+
 
 TESTING THE SETUP:
 
