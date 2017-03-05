@@ -77,10 +77,11 @@ Find more information about the Hystrix Dashboard in the [References section](#r
 
 Verify that the hystrix dashboard works by accessing [http://localhost:8081/hystrix](http://localhost:8081/hystrix)
 
-# Eclipse project:
+# Hystrix Prototype Project:
 
-The prototype is created as a project in eclipse, which can be found in the 'Project' 
-folder of the prototype. This can be imported in eclipse.
+The prototype application is located in the __Prototype__ directory. The application used gradle as the build and dependency management tool and can be imported into eclipse in two ways:
+
+* 
 
 The project can be run with tomcat or Jetty. It has been tested with Jetty, which can 
 be installed in eclipse using this guide: http://eclipse-jetty.github.io/
@@ -140,3 +141,4 @@ Contains timeout values for the HTTP client used for accessing the imposters
 * Apache Benchmark [https://httpd.apache.org/docs/2.4/programs/ab.html](https://httpd.apache.org/docs/2.4/programs/ab.html)
 * Postman [https://www.getpostman.com/](https://www.getpostman.com/)
 * curl [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html)
+* Gradle [https://gradle.org/](https://gradle.org/)
