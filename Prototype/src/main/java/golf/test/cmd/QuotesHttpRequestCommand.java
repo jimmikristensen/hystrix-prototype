@@ -28,6 +28,7 @@ public class QuotesHttpRequestCommand extends HystrixCommand<String> {
 	//Allowed execution time before hystrix aborts the command
 	public static final int ALLOWED_EXC_TIME_MS = 1500;
 
+	// The HTTP client
 	private CloseableHttpClient client;
 	
 	public QuotesHttpRequestCommand(CloseableHttpClient client) {
