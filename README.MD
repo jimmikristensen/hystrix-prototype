@@ -77,14 +77,14 @@ Find more information about the Hystrix Dashboard in the [References section](#r
 
 Verify that the hystrix dashboard works by accessing [http://localhost:8081/hystrix](http://localhost:8081/hystrix)
 
-# Hystrix Prototype Project:
+## Hystrix Prototype Project
 
 The prototype application is located in the __Prototype__ directory. The application uses [Gradle](#references) as the build and dependency management tool and can be imported into eclipse in two ways:
 
 * [Import gradle project](#import-gradle-project)
 * [Import existing project](#import-existing-project)
 
-## Import gradle project
+### Import gradle project
 
 Using the eclipse gradle-plugin to import the project, gradle will automatically take care of dependencies and you will be able to run gradle commands directly from eclipse.
 
@@ -100,7 +100,7 @@ When eclipse has restarted, import the project:
 * Browse for the _Prototype_ projects root dir and click _Open_
 * Click _Finish_
 
-## Import existing project
+### Import existing project
 
 Before importing the project into eclipse, you need to generate the eclipse .project file. This is done using the gradle wrappe - run the following command:
 
@@ -120,19 +120,19 @@ Open eclipse:
 
 You should now have a _HystrixPrototype_ project in the project explorer.
 
-## Running the Prototype
+### Running the Prototype
 
 The project can be run with Tomcat or Jetty. This guide uses Jetty.
 
 The prototype application can be run from within __eclipse__ or from the __command line__ using gradle.
 
-### Running from Eclipse
+#### Running from Eclipse
 
 Running from eclipse requires a Jetty plugin, which can be installed in eclipse using this guide: [http://eclipse-jetty.github.io](http://eclipse-jetty.github.io)
 
 Once the Jetty plugin is installed do the following in eclipse:
 
-* Right click on the project
+* Right click on the project in the Project Explorer
 * Run As -> Run Configuration
 * Right click _Jetty Webapp_ and select _New_
 * To tell eclipse where to find the webapp dir, click the _Scan_ button
@@ -141,7 +141,7 @@ Once the Jetty plugin is installed do the following in eclipse:
 
 The endpoint for accessing the server endpoint is: [http://localhost:8080/v1/hello](http://localhost:8080/v1/hello). This of course depends on the port, which is configured in the run configuration in eclipse. 
 
-### Running from Command Line using Gradle
+#### Running from Command Line using Gradle
 
 ```bash
 # change to the project root directory
