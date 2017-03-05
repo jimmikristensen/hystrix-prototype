@@ -15,8 +15,8 @@ The following sections will explain the setup of the specific components.
 * [Setting up and configuring Mountebank](#setting-up-and-configuring-mountebank)
 * [Setting up Hystrix Dashboard](#setting-up-hystrix-dashboard)
 * [Import the Prototype in Eclipse](#import-the-prototype-in-eclipse)
-* [Running the prototype Java application](running-the-prototype-java-application)
-* [Putting load on the prototype](putting-load-on-the-prototype)
+* [Running the prototype Java application](#running-the-prototype-java-application)
+* [Putting load on the prototype](#putting-load-on-the-prototype)
 
 Find links to the resources used in this manual in the [references section](#references)
 
