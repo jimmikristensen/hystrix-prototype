@@ -8,3 +8,4 @@ jmeter.log
 build/
 bin/
 lib/
+.gradle/
