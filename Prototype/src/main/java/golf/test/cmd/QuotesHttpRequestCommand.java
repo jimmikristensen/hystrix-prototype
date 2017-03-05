@@ -14,13 +14,13 @@ import com.netflix.hystrix.HystrixCommandKey;
 import com.netflix.hystrix.HystrixCommandProperties;
 import com.netflix.hystrix.HystrixThreadPoolProperties;
 
-public class ChuckHttpRequestCommand extends HystrixCommand<String> {
+public class QuotesHttpRequestCommand extends HystrixCommand<String> {
 
 	//Name of the command - shown in the hystrix dashboard
 	public static final String CMD_NAME = "Command1";
 	
 	//Endpoint which the command should access (Downstream service)
-	public static final String CLIENT_ENDPOINT = "http://localhost:4545/chuck";
+	public static final String CLIENT_ENDPOINT = "http://localhost:4545/quotes";
 	
 	//Thread pool size for handling command requests
 	public static final int THREAD_POOL_SIZE = 15;
@@ -30,7 +30,7 @@ public class ChuckHttpRequestCommand extends HystrixCommand<String> {
 
 	private CloseableHttpClient client;
 	
-	public ChuckHttpRequestCommand(CloseableHttpClient client) {
+	public QuotesHttpRequestCommand(CloseableHttpClient client) {
 		super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey(CMD_NAME+"-Pool"))
 				.andCommandKey(HystrixCommandKey.Factory.asKey(CMD_NAME))
 				.andThreadPoolPropertiesDefaults(
@@ -67,6 +67,6 @@ public class ChuckHttpRequestCommand extends HystrixCommand<String> {
 
 	@Override
 	protected String getFallback() {
-		return "Chuck Norris is no longer funny...";
+		return "No quites at the moment...";
 	}
 }

@@ -14,7 +14,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.exception.HystrixRuntimeException;
 
-import golf.test.cmd.ChuckHttpRequestCommand;
+import golf.test.cmd.QuotesHttpRequestCommand;
 import golf.test.cmd.TimeHttpRequestCommand;
 
 @Path("/hello")
@@ -26,20 +26,20 @@ public class Endpoint {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response hello() throws ValidationException, InterruptedException {
-		boolean chuckCommandSucceded = true;
+		boolean quotesCommandSucceded = true;
 		boolean timeCommandSucceded = true;
-		String chuckReq = null;
+		String quoteReq = null;
 		String timeReq = null;
 		
 		try {
-			HystrixCommand<String> cmd = new ChuckHttpRequestCommand(http_client);
-			chuckReq = cmd.execute();
+			HystrixCommand<String> cmd = new QuotesHttpRequestCommand(http_client);
+			quoteReq = cmd.execute();
 			if (cmd.isSuccessfulExecution() == false) {
 				// If needed we can check if execution went well..
 				// Should be used for optimization of flow - not errorhandling.
 				// Hystrix fallback should handle errors.
 				// System.out.println(cmd.getExecutionException());
-				chuckCommandSucceded = false;
+				quotesCommandSucceded = false;
 			}
 			HystrixCommand<String> cmd1 = new TimeHttpRequestCommand(http_client);
 			timeReq = cmd1.execute();
@@ -56,8 +56,15 @@ public class Endpoint {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
 		
-		String reply = String.format("Chuck command secceded: %b\n Time command succeded: %b\n"
-				+ "Time: %s\nChuck says: %s", chuckCommandSucceded, timeCommandSucceded, timeReq, chuckReq);
+		String reply = String.format("%-24s: %b\n%-24s: %b\n%-6s: %s\n%-6s: %s", 
+				"Quites command secceded",
+				quotesCommandSucceded, 
+				"Time command succeded",
+				timeCommandSucceded, 
+				"Time",
+				timeReq, 
+				"Quote",
+				quoteReq);
 		return Response.ok(reply, MediaType.TEXT_PLAIN_TYPE).build();
 	}
 
