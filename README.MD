@@ -14,6 +14,7 @@ The following sections will explain the setup of the specific components.
 
 * [Setting up and configuring Mountebank](#setting-up-and-configuring-mountebank)
 * [Setting up Hystrix Dashboard](#setting-up-hystrix-dashboard)
+* [Import the Prototype in Eclipse](#import-the-prototype-in-eclipse)
 * [Running the prototype Java application](running-the-prototype-java-application)
 * [Putting load on the prototype](putting-load-on-the-prototype)
 
@@ -77,7 +78,7 @@ Find more information about the Hystrix Dashboard in the [References section](#r
 
 Verify that the hystrix dashboard works by accessing [http://localhost:8081/hystrix](http://localhost:8081/hystrix)
 
-## Hystrix Prototype Project
+## Import the Prototype in Eclipse
 
 The prototype application is located in the __Prototype__ directory. The application uses [Gradle](#references) as the build and dependency management tool and can be imported into eclipse in two ways:
 
@@ -120,13 +121,13 @@ Open eclipse:
 
 You should now have a _HystrixPrototype_ project in the project explorer.
 
-### Running the Prototype
+## Running the prototype Java application
 
 The project can be run with Tomcat or Jetty. This guide uses Jetty.
 
 The prototype application can be run from within __eclipse__ or from the __command line__ using gradle.
 
-#### Running from Eclipse
+### Running from Eclipse
 
 Running from eclipse requires a Jetty plugin, which can be installed in eclipse using this guide: [http://eclipse-jetty.github.io](http://eclipse-jetty.github.io)
 
@@ -141,7 +142,7 @@ Once the Jetty plugin is installed do the following in eclipse:
 
 The endpoint for accessing the server endpoint is: [http://localhost:8080/v1/hello](http://localhost:8080/v1/hello). This of course depends on the port, which is configured in the run configuration in eclipse. 
 
-#### Running from Command Line using Gradle
+### Running from Command Line using Gradle
 
 ```bash
 # change to the project root directory
