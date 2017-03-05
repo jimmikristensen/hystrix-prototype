@@ -79,9 +79,26 @@ Verify that the hystrix dashboard works by accessing [http://localhost:8081/hyst
 
 # Hystrix Prototype Project:
 
-The prototype application is located in the __Prototype__ directory. The application used gradle as the build and dependency management tool and can be imported into eclipse in two ways:
+The prototype application is located in the __Prototype__ directory. The application used [Gradle](#references) as the build and dependency management tool and can be imported into eclipse in two ways:
 
-* 
+* [Import existing project](#import-existing-project)
+* [Import gradle project](#import-gradle-project)
+
+## Import existing project
+
+Before importing the project into eclipse, you need to generate the eclipse .project file. This is done using gradle, run the following command:
+
+```bash
+# change to the project root directory
+cd Prototype
+./gradlew eclipse
+```
+
+_If you are on a windows machine, use the gradlew.bat file instead._
+
+
+
+## Import gradle project
 
 The project can be run with tomcat or Jetty. It has been tested with Jetty, which can 
 be installed in eclipse using this guide: http://eclipse-jetty.github.io/
