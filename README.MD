@@ -228,23 +228,9 @@ This will start the test using __10 Threads__ and __2000 Loop Count__.
 
 Run the test using one of the methods described above while you watch Hystrix Dashboard. You should be able to see the requests being porcessed by the Hystrix Commands and that the circuit remain closed at all times.  
 
-### Testing the setup
+### Simulating slow response from the DOC
 
-1.
-Use postman to execute the imported GET request, which should access the following url:
-http://localhost:8080/v1/hello and return a value like: 
-
-'Hello :) First command succeeded: true. Second command succeded: true'
-
-2. Connect the hystrix dashboard to the webserver by typing the url to the webserver in
-the hystrix dashboard. Remember that, the dashboard is running in a docker container 
-which does not work with 'localhost'. Use the url like: 
-http://[network ip etc. '192.168.1.78']:8080/hystrix.stream
-
-3. Use JMeter to put more load on the webserver. Use the 'load.jmx' file located 'Jmeter' 
-folder, which is configured to put load on http://localhost:8080/v1/hello
-
-4. Use and modify the imported PUT request to put more latency on the mountebank imposters
+Now that everything is set up and we are able to put load on the prototype, it's time to simulate slow response from the dependent-on components (DOC).
 
 
 
