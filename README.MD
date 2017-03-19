@@ -150,6 +150,8 @@ cd Prototype
 
 This uses the project files and deploys them to Jetty. Running this way will make the endpoint available here: [http://localhost:8080/HystrixPrototype/v1/hello](http://localhost:8080/HystrixPrototype/v1/hello)
 
+> Notice that running from commandline makes the prototype available on a different URL than Eclipse!
+
 ## Putting it all together
 
 Now that the Hystrix dashboard and Mountebank stubs are in place and you can run the project on a Jetty server, lets try it all together.
@@ -166,8 +168,6 @@ Try accessing it through __Postman__ or __curl__:
 ```bash
 curl http://localhost:8080/HystrixPrototype/v1/hello
 ```
-
-> Notice that running from commandline makes the prototype available on a different URL than Eclipse!
 
 __Monitor circuit health through dashboard__
 
