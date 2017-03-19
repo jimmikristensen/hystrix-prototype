@@ -204,12 +204,11 @@ The project contains two configurations located in the _JMeter_ dir. Which one y
 * Eclipse: __eclipse_started.jmx__ (use this if you startet the prototype from eclipse)
 * Command Line: __cmdline_started.jmx__ (use this if you startet the prototype from command line)
 
-Both configs are configured with __10 Threads__ and __2000 Loop Count__. The only difference is HTTP request path they use _(v1/hello or HystrixPrototype/v1/hello)_.
+Both configs are configured with __10 Threads__ and __2000 Loop Count__. The only difference is the HTTP request path they use _(http://localhost:8080/v1/hello or http://localhost:8080/HystrixPrototype/v1/hello)_.
 
 * Open JMeter
 * File -> Open (browse to the desired .jmx file)
-
-The JMeter config will send requests to http://localhost:8080/v1/hello
+* Click the green arrow to _Start_ the load test
 
 ### Testing the setup
 
