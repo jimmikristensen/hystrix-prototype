@@ -201,8 +201,10 @@ To put load on the prototype use Apache Benchmark or JMeter.
 
 The project contains two configurations located in the _JMeter_ dir. Which one you should use depends on how you started the prototype.
 
-* Eclipse: eclipse_started.jmx (use this if you startet the prototype from eclipse)
-* Command Line: cmdline_started.jmx (use this if you startet the prototype from command line)
+* Eclipse: __eclipse_started.jmx__ (use this if you startet the prototype from eclipse)
+* Command Line: __cmdline_started.jmx__ (use this if you startet the prototype from command line)
+
+Both configs are configured with __10 Threads__ and __2000 Loop Count__. The only difference is HTTP request path they use _(v1/hello or HystrixPrototype/v1/hello)_.
 
 * Open JMeter
 * File -> Open (browse to the desired .jmx file)
