@@ -224,6 +224,10 @@ ab -n 2000 -c 10 http://localhost:8080/HystrixPrototype/v1/hello
 
 This will start the test using __10 Threads__ and __2000 Loop Count__.
 
+#### Monitoring the prototype circuits while running the test
+
+Run the test using one of the methods described above while you watch Hystrix Dashboard. You should be able to see the requests being porcessed by the Hystrix Commands and that the circuit remain closed at all times.  
+
 ### Testing the setup
 
 1.
