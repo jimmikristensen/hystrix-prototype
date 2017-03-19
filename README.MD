@@ -187,11 +187,11 @@ Access the hystrix dashboard [http://localhost:8081/hystrix](http://localhost:80
 * Eclipse: http://<ip_address_of_host_machine>:8080/hystrix.stream
 * Command Line: http://<ip_address_of_host_machine>:8080/HystrixPrototype/hystrix.stream
 
-> Notice that because the dashboard is running in a docker container and the prototype application sending the data stream is running on the host machine, you must add the IP address of the host machine when adding the stream URL on the dashboard page.
+> Notice that because the dashboard is running in a docker container and the prototype application sending the data stream is running on the host machine, you must use the IP address of the host machine when adding the stream URL on the dashboard page.
 
 Click the _Monitor Stream_ button. Try sending some requests to the prototype URL and you should see two circuits (Command1 and Command2) both receiving requests and both in _Closed_ state.
 
-> If you see the message _Unable to connect to Command Metric Stream._ your application is not started or you added the wrong hystrix.stream URL.
+> If you see the message _Unable to connect to Command Metric Stream._ try sending a few requests to the prototype application __(/v1/hello)__ as it does not start the stream before the first request has been received. If it is still not working, your application might not be started or you added the wrong hystrix.stream URL.
 
 ### Testing the setup
 
