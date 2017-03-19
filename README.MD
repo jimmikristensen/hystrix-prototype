@@ -176,8 +176,8 @@ The output should look similar to this:
 ```bash
 Quites command secceded : true
 Time command succeded   : true
-Time  : Server time is 15:54:14
-Quote : If debugging is the process of removing software bugs, then programming must be the process of putting them in. - Edsger Dijkstra
+Time  : Server time is 15:54:13
+Quote : Program testing can be used to show the presence of bugs, but never to show their absence! - Edsger Dijkstra
 ```
 
 ### Monitor circuit health through dashboard
