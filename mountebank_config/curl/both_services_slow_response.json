@@ -1,0 +1,131 @@
+{
+  "imposters":[
+    {
+      "port":4545,
+      "protocol":"http",
+      "stubs":[
+        {
+          "predicates":[
+            {
+              "equals":{
+                "method":"GET",
+                "path":"/quotes"
+              }
+            }
+          ],
+          "responses":[
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"If debugging is the process of removing software bugs, then programming must be the process of putting them in. - Edsger Dijkstra"
+              },
+              "_behaviors":{
+                "wait":1500
+              }
+            },
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"Any fool can write code that a computer can understand. Good programmers write code that humans can understand. - Martin Fowler"
+              },
+              "_behaviors":{
+                "wait":1500
+              }
+            },
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult. - C.A.R. Hoare"
+              },
+              "_behaviors":{
+                "wait":1500
+              }
+            },
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"Program testing can be used to show the presence of bugs, but never to show their absence! - Edsger Dijkstra"
+              },
+              "_behaviors":{
+                "wait":1500
+              }
+            },
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body":"Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification. - Bertrand Meyer"
+              },
+              "_behaviors":{
+                "wait":1500
+              }
+            }
+          ]
+        },
+        {
+          "responses": [
+            {
+              "is": {
+                "statusCode": 404
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port":4546,
+      "protocol":"http",
+      "stubs":[
+        {
+          "predicates":[
+            {
+              "equals":{
+                "method":"GET",
+                "path":"/time"
+              }
+            }
+          ],
+          "responses":[
+            {
+              "is":{
+                "statusCode":200,
+                "headers":{
+                  "Content-Type":"text/plain"
+                },
+                "body": "${TIME}"
+              },
+              "_behaviors":{
+                "decorate":"function (request, response) { var pad = function (number) { return (number < 10) ? '0' + number : number.toString(); }, now = new Date(), time = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds()); response.body = response.body.replace('${TIME}', time); }",
+                "wait":1500
+              }
+            }
+          ]
+        },
+        {
+          "responses": [
+            {
+              "is": {
+                "statusCode": 404
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
