@@ -127,18 +127,18 @@ The prototype application can be run from within __eclipse__ or from the __comma
 
 ### Running from Eclipse
 
-Running from eclipse requires a [Jetty plugin](#References), which can be installed in eclipse using this guide: [http://eclipse-jetty.github.io](http://eclipse-jetty.github.io)
+Running from eclipse requires a [Jetty plugin](#references), which can be installed in eclipse using this guide: [http://eclipse-jetty.github.io](http://eclipse-jetty.github.io)
 
 Once the Jetty plugin is installed do the following in eclipse:
 
 * Right click on the project in the Project Explorer
 * Run As -> Run Configuration
 * Right click _Jetty Webapp_ and select _New_
-* To tell eclipse where to find the webapp dir, click the _Scan_ button
+* To tell eclipse where to find the __webapp__ dir, click the _Scan_ button
 * Make sure you select port _8080_ for your application
 * Click _Run_
 
-The endpoint for accessing the server endpoint is: [http://localhost:8080/v1/hello](http://localhost:8080/v1/hello). This of course depends on the port, which is configured in the run configuration in eclipse. 
+The endpoint for accessing the server endpoint is: [http://localhost:8080/v1/hello](http://localhost:8080/v1/hello). This of course depends on the port you configured in the run configuration in eclipse. 
 
 ### Running from Command Line using Gradle
 
@@ -152,7 +152,7 @@ This uses the project files and deploys them to Jetty. Running this way will mak
 
 ## Putting it all together
 
-Now that the Hystrix dashboard and Mountebank stubs are in place and you can run the project from Jetty, lets try it all together.
+Now that the Hystrix dashboard and Mountebank stubs are in place and you can run the project on a Jetty server, lets try it all together.
 
 __Start the Prototype__
 
@@ -166,6 +166,8 @@ Try accessing it through __Postman__ or __curl__:
 ```bash
 curl http://localhost:8080/HystrixPrototype/v1/hello
 ```
+
+> Notice that running from commandline makes the prototype available on a different URL than Eclipse!
 
 __Monitor circuit health through dashboard__
 
