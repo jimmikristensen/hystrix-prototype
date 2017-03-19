@@ -163,13 +163,20 @@ Start the prototype application via __eclipse__ or __command line__. The applica
 * Eclipse: [http://localhost:8080/v1/hello](http://localhost:8080/v1/hello)
 * Command Line: [http://localhost:8080/HystrixPrototype/v1/hello](http://localhost:8080/HystrixPrototype/v1/hello)
 
-Try accessing it through __Postman__ or __curl__
+Try accessing it through __Postman__ or __curl__:
 
 ```bash
-curl http://localhost:8080/HystrixPrototype/v1/hello
-# or
 curl http://localhost:8080/v1/hello
+# or
+curl http://localhost:8080/HystrixPrototype/v1/hello
 ```
+
+The output should look similar to this:
+
+> Quites command secceded : true
+> Time command succeded   : true
+> Time  : Server time is 15:54:14
+> Quote : If debugging is the process of removing software bugs, then programming must be the process of putting them in. - Edsger Dijkstra
 
 ### Monitor circuit health through dashboard
 
@@ -182,8 +189,7 @@ Click the _Monitor Stream_ button. Try sending some requests to the prototype UR
 
 > If you see the message _Unable to connect to Command Metric Stream._ your application is not started or you added the wrong hystrix.stream URL.
 
-
-TESTING THE SETUP:
+### Testing the setup
 
 1.
 Use postman to execute the imported GET request, which should access the following url:

@@ -2,18 +2,21 @@
 	"variables": [],
 	"info": {
 		"name": "HystrixPrototype",
-		"_postman_id": "1f7d77a7-79f7-270a-44a8-d4d4b2ac0da8",
+		"_postman_id": "57294671-116e-9337-3904-73177d35cd68",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/v1/hello",
+			"name": "[Prototype] http://localhost:8080/v1/hello",
 			"request": {
 				"url": "http://localhost:8080/v1/hello",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
