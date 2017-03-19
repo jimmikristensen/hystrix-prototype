@@ -193,6 +193,22 @@ Click the _Monitor Stream_ button. Try sending some requests to the prototype UR
 
 > If you see the message _Unable to connect to Command Metric Stream._ try sending a few requests to the prototype application __(/v1/hello)__ as it does not start the stream before the first request has been received. If it is still not working, your application might not be started or you added the wrong hystrix.stream URL.
 
+### Adding load on the prototype
+
+To put load on the prototype use Apache Benchmark or JMeter.
+
+#### Using JMeter
+
+The project contains two configurations located in the _JMeter_ dir. Which one you should use depends on how you started the prototype.
+
+* Eclipse: eclipse_started.jmx (use this if you startet the prototype from eclipse)
+* Command Line: cmdline_started.jmx (use this if you startet the prototype from command line)
+
+* Open JMeter
+* File -> Open (browse to the desired .jmx file)
+
+The JMeter config will send requests to http://localhost:8080/v1/hello
+
 ### Testing the setup
 
 1.

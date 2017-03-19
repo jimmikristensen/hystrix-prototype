@@ -57,7 +57,7 @@ public class Endpoint {
 		}
 		
 		String reply = String.format("%-24s: %b\n%-24s: %b\n%-6s: %s\n%-6s: %s\n", 
-				"Quites command secceded",
+				"Quotes command secceded",
 				quotesCommandSucceded, 
 				"Time command succeded",
 				timeCommandSucceded, 
