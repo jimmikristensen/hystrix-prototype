@@ -212,7 +212,7 @@ Both configs are configured with __10 Threads__ and __2000 Loop Count__. The onl
 
 #### Using Apache Benchmark
 
-To use Apache Benchmark run one of the following commands
+To use Apache Benchmark run one of the following commands:
 
 ```bash
 # Run this command of the prototype was started using eclipse
@@ -221,6 +221,8 @@ ab -n 2000 -c 10 http://localhost:8080/v1/hello
 # Run this command of the prototype was started from command line
 ab -n 2000 -c 10 http://localhost:8080/HystrixPrototype/v1/hello
 ```
+
+This will start the test using __10 Threads__ and __2000 Loop Count__.
 
 ### Testing the setup
 
