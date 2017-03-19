@@ -210,6 +210,18 @@ Both configs are configured with __10 Threads__ and __2000 Loop Count__. The onl
 * File -> Open (browse to the desired .jmx file)
 * Click the green arrow to _Start_ the load test
 
+#### Using Apache Benchmark
+
+To use Apache Benchmark run one of the following commands
+
+```bash
+# Run this command of the prototype was started using eclipse
+ab -n 2000 -c 10 http://localhost:8080/v1/hello
+# or
+# Run this command of the prototype was started from command line
+ab -n 2000 -c 10 http://localhost:8080/HystrixPrototype/v1/hello
+```
+
 ### Testing the setup
 
 1.
