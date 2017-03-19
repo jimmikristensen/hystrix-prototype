@@ -16,7 +16,7 @@ The following sections will explain the setup of the specific components.
 * [Setting up Hystrix Dashboard](#setting-up-hystrix-dashboard)
 * [Import the Prototype in Eclipse](#import-the-prototype-in-eclipse)
 * [Running the prototype Java application](#running-the-prototype-java-application)
-* [Putting load on the prototype](#putting-load-on-the-prototype)
+* [Putting it all together by adding load on the prototype](#putting-it-all-together-by-adding-load-on-the prototype)
 
 Find links to the resources used in this manual in the [references section](#references)
 
@@ -152,7 +152,7 @@ This uses the project files and deploys them to Jetty. Running this way will mak
 
 > Notice that running from command line makes the prototype available on a different URL than Eclipse!
 
-## Putting it all together
+## Putting it all together by adding load on the prototype
 
 Now that the Hystrix dashboard and Mountebank stubs are in place and you can run the project on a Jetty server, lets try it all together.
 
