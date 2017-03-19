@@ -245,7 +245,9 @@ cd mountebank_config/curl
 curl -X PUT -d @both_services_slow_response.json http://localhost:2525/imposters
 ```
 
+Now rerun the test from before and take a look at the Dashboard. This time you will see the percentage rising and the circuits opening. You will also notice that you still receive 200 OK responses in your test. This means that Hystrix has detected the slow response, opened its circuits and returning the fallback response insteam.
 
+> There are additional stub configurations which will simulate slow response from one of the two DOCs or from both of them. Use Postman or CURL to play around with Hystrix and see what happens if you change configuration while testing.
 
 # Project Overview
 
