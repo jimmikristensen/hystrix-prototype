@@ -46,7 +46,7 @@ __Use Postman or cURL to configure Mountebank as described below:__
 * Open Postman and import the Postman collection:
 	* Click the _Import_ button located in the upper left side of the window and import the collection located here:
 		* __mountebank_config/postman/HystrixPrototype.postman_collection__
-	* You should now see _3 imported_ HTTP requests
+	* You should now see _5 imported_ HTTP requests
 * Send the request named __[Stub] Initial setup__ to setup Mountebank the first time
 
 ### Or configure using cURL
@@ -232,7 +232,22 @@ Run the test using one of the methods described above while you watch Hystrix Da
 
 Now that everything is set up and we are able to put load on the prototype, it's time to simulate slow response from the dependent-on components (DOC).
 
+To simulate slow response from the two DOC send a PUT using Postman or CURL. This will configure the DOC stubs to have a latency of 1500 milliseconds.
 
+#### Using Postman
+
+Send a PUT request to Mountebank by selecting __[Stub] Both services slow response__ and click _Send_.
+
+#### Using CURL
+
+```bash
+cd mountebank_config/curl
+curl -X PUT -d @both_services_slow_response.json http://localhost:2525/imposters
+```
+
+
+
+# Project Overview
 
 IMPORTANT SETTINGS:
 
