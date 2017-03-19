@@ -8,7 +8,7 @@ The purpose of this prototype is to gain experience with Hystrix as a circuit br
 
 The prototype is a very basic implementation of a web application, which uses Hystrix Commands to wrap HTTP requests. The web server exposes Hystrix metrics which can be used for monitoring the HTTP requests and the state of the circuit breaker in a Hystrix dashboard.
 
-The Hystrix commands will execute 2 HTTP GET requests to two different URLS, which should be controlled by mountebank and can be manipulated by sending HTTP requests to the mountebank server.
+The Hystrix commands will execute 2 HTTP GET requests to two different URLs, which should be controlled by mountebank and can be manipulated by sending HTTP requests to the mountebank server.
 
 The following sections will explain the setup of the specific components.
 
@@ -43,9 +43,7 @@ __Use Postman or cURL to configure Mountebank as described below:__
 
 ### Configure using Postman
 
-* Postman is an application used for sending HTTP requests
-* Download and install Postman: https://www.getpostman.com/
-* Import the Postman collection:
+* Open Postman and import the Postman collection:
 	* Click the _Import_ button located in the upper left side of the window and import the collection located here:
 		* __mountebank_config/postman/HystrixPrototype.postman_collection__
 	* You should now see _3 imported_ HTTP requests
@@ -103,7 +101,7 @@ When eclipse has restarted, import the project:
 
 ### Import existing project
 
-Before importing the project into eclipse, you need to generate the eclipse .project file. This is done using the gradle wrappe - run the following command:
+If you don't want to install the gradle plugin in eclipse, the project can be imported in the traditional way. Before importing the project into eclipse, you need to generate the eclipse .project file. This is done using the gradle wrappe - run the following command that will setup an eclipse project:
 
 ```bash
 # change to the project root directory
@@ -129,7 +127,7 @@ The prototype application can be run from within __eclipse__ or from the __comma
 
 ### Running from Eclipse
 
-Running from eclipse requires a Jetty plugin, which can be installed in eclipse using this guide: [http://eclipse-jetty.github.io](http://eclipse-jetty.github.io)
+Running from eclipse requires a [Jetty plugin](#References), which can be installed in eclipse using this guide: [http://eclipse-jetty.github.io](http://eclipse-jetty.github.io)
 
 Once the Jetty plugin is installed do the following in eclipse:
 
@@ -225,6 +223,6 @@ Contains timeout values for the HTTP client used for accessing the imposters
 * JMeter [http://jmeter.apache.org/](http://jmeter.apache.org/)
 * Apache Benchmark [https://httpd.apache.org/docs/2.4/programs/ab.html](https://httpd.apache.org/docs/2.4/programs/ab.html)
 * Postman [https://www.getpostman.com/](https://www.getpostman.com/)
-* curl [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html)
+* CURL [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html)
 * Gradle [https://gradle.org/](https://gradle.org/)
 * Gradle plugin for Eclipse [http://www.vogella.com/tutorials/EclipseGradle/article.html](http://www.vogella.com/tutorials/EclipseGradle/article.html#installation-via-the-marketplace)
