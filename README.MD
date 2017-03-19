@@ -180,12 +180,14 @@ Time  : Server time is 15:54:13
 Quote : Program testing can be used to show the presence of bugs, but never to show their absence! - Edsger Dijkstra
 ```
 
-### Monitor circuit health through dashboard
+### Monitor circuit health through the dashboard
 
 Access the hystrix dashboard [http://localhost:8081/hystrix](http://localhost:8081/hystrix) and add the hystrix stream URL depending on how you started the prototype.
 
-* Eclipse: http://192.168.1.14:8080/hystrix.stream
-* Command Line: http://192.168.1.14:8080/HystrixPrototype/hystrix.stream
+* Eclipse: http://<ip_address_of_host_machine>:8080/hystrix.stream
+* Command Line: http://<ip_address_of_host_machine>:8080/HystrixPrototype/hystrix.stream
+
+> Notice that because the dashboard is running in a docker container and the prototype application sending the data stream is running on the host machine, you must add the IP address of the host machine when adding the stream URL on the dashboard page.
 
 Click the _Monitor Stream_ button. Try sending some requests to the prototype URL and you should see two circuits (Command1 and Command2) both receiving requests and both in _Closed_ state.
 
