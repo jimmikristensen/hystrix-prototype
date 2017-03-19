@@ -173,10 +173,12 @@ curl http://localhost:8080/HystrixPrototype/v1/hello
 
 The output should look similar to this:
 
-> Quites command secceded : true
-> Time command succeded   : true
-> Time  : Server time is 15:54:14
-> Quote : If debugging is the process of removing software bugs, then programming must be the process of putting them in. - Edsger Dijkstra
+```bash
+Quites command secceded : true
+Time command succeded   : true
+Time  : Server time is 15:54:14
+Quote : If debugging is the process of removing software bugs, then programming must be the process of putting them in. - Edsger Dijkstra
+```
 
 ### Monitor circuit health through dashboard
 
