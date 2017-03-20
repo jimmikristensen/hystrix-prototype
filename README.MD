@@ -16,7 +16,6 @@ The following sections will explain the setup of the specific components.
 * [Setting up Hystrix Dashboard](#setting-up-hystrix-dashboard)
 * [Import the Prototype in Eclipse](#import-the-prototype-in-eclipse)
 * [Running the prototype Java application](#running-the-prototype-java-application)
-* [Putting it all together by adding load on the prototype](#running-the-prototype-java-application)
 * [Putting it all together by adding load on the prototype](#putting-it-all-together-by-adding-load-on-the prototype)
 
 Find links to the resources used in this manual in the [references section](#references)
