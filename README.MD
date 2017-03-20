@@ -16,7 +16,7 @@ The following sections will explain the setup of the specific components.
 * [Setting up Hystrix Dashboard](#setting-up-hystrix-dashboard)
 * [Import the Prototype in Eclipse](#import-the-prototype-in-eclipse)
 * [Running the prototype Java application](#running-the-prototype-java-application)
-* [Putting it all together by adding load on the prototype](#putting-it-all-together-by-adding-load-on-the-prototype)
+* [Putting load on the prototype application](#putting-load-on-the-prototype-application)
 
 Find links to the resources used in this manual in the [references section](#references)
 
@@ -152,13 +152,9 @@ This uses the project files and deploys them to Jetty. Running this way will mak
 
 > Notice that running from command line makes the prototype available on a different URL than Eclipse!
 
-## Putting it all together by adding load on the prototype
+### Accessing the prototype endpoint
 
-Now that the Hystrix dashboard and Mountebank stubs are in place and you can run the project on a Jetty server, lets try it all together.
-
-### Start the Prototype
-
-Start the prototype application via __eclipse__ or __command line__. The application should be available through one of the following URLs depending on how you started it:
+The application should now be running via __eclipse__ or __command line__. The application should be available through one of the following URLs depending on how you started it:
 
 * Eclipse: [http://localhost:8080/v1/hello](http://localhost:8080/v1/hello)
 * Command Line: [http://localhost:8080/HystrixPrototype/v1/hello](http://localhost:8080/HystrixPrototype/v1/hello)
@@ -179,6 +175,10 @@ Time command succeded   : true
 Time  : Server time is 15:54:13
 Quote : Program testing can be used to show the presence of bugs, but never to show their absence! - Edsger Dijkstra
 ```
+
+## Putting load on the prototype application
+
+Now that the Hystrix dashboard and Mountebank stubs are in place and you can run the project on a Jetty server, lets try it all together.
 
 ### Monitor circuit health through the dashboard
 
