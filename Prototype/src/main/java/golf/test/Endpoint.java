@@ -21,7 +21,7 @@ import golf.test.cmd.TimeHttpRequestCommand;
 public class Endpoint {
 
 	@Inject
-	CloseableHttpClient http_client;
+	CloseableHttpClient httpClient;
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
@@ -32,7 +32,7 @@ public class Endpoint {
 		String timeReq = null;
 		
 		try {
-			HystrixCommand<String> cmd = new QuotesHttpRequestCommand(http_client);
+			HystrixCommand<String> cmd = new QuotesHttpRequestCommand(httpClient);
 			quoteReq = cmd.execute();
 			if (cmd.isSuccessfulExecution() == false) {
 				// If needed we can check if execution went well..
@@ -41,7 +41,7 @@ public class Endpoint {
 				// System.out.println(cmd.getExecutionException());
 				quotesCommandSucceded = false;
 			}
-			HystrixCommand<String> cmd1 = new TimeHttpRequestCommand(http_client);
+			HystrixCommand<String> cmd1 = new TimeHttpRequestCommand(httpClient);
 			timeReq = cmd1.execute();
 			if (cmd1.isSuccessfulExecution() == false) {
 				timeCommandSucceded = false;
