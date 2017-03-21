@@ -27,7 +27,11 @@ cd Prototype
 ./gradlew jettyRun
 ```
 
-5) __Putting load on the prototype:__
+5) __Monitor circuit health through Hystrix Dashboard at http://localhost:8081/hystrix__
+
+Add the hystrix stream: http://<ip_address_of_host_machine>:8080/HystrixPrototype/hystrix.stream
+
+6) __Putting load on the prototype:__
 
 ```bash
 ab -n 2000 -c 10 http://localhost:8080/HystrixPrototype/v1/hello
@@ -213,7 +217,7 @@ Quote : Program testing can be used to show the presence of bugs, but never to s
 
 Now that the Hystrix Dashboard and Mountebank stubs are in place and you have the prototype running on a Jetty server, it's time to add some load on the application.
 
-### Monitor circuit health through the dashboard
+### Monitor circuit health through Hystrix Dashboard
 
 Access the hystrix dashboard [http://localhost:8081/hystrix](http://localhost:8081/hystrix) and add the hystrix stream URL depending on how you started the prototype.
 
