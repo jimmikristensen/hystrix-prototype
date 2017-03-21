@@ -1,6 +1,6 @@
 # Quick Start
 
-If this is the first time you set up this prototype, I encourage you to skip the quick start and read the description below.
+If this is the first time you set up this prototype, I encourage you to skip the quick start and read the description [below](#Hystrixh-prototype).
 
 1) __Start Mountebank:__
 
@@ -58,6 +58,7 @@ The following sections will explain the setup of the specific components.
 * [Import the Prototype in Eclipse](#import-the-prototype-in-eclipse)
 * [Running the prototype Java application](#running-the-prototype-java-application)
 * [Putting load on the prototype application](#putting-load-on-the-prototype-application)
+* [Project Overview](#project-overview)
 
 Find links to the resources used in this manual in the [references section](#references)
 
@@ -290,9 +291,9 @@ Now rerun the test from before and take a look at the Dashboard. This time you w
 
 # Project Overview
 
-IMPORTANT SETTINGS:
+## Important settings
 
-HttpRequestCommand.java and HttpRequestCommand1.java:  
+_QuotesHttpRequestCommand.java_ and _TimeHttpRequestCommand.java: 
 contains settings for the circuit breakers and url to the imposters in mountebank
 
 PoolingConnectionManager
