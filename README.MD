@@ -1,6 +1,6 @@
 # Quick Start
 
-If this is the first time you set up this prototype, I encourage you to skip the quick start and read the description [below](#hystrixh-prototype).
+If this is the first time you set up this prototype, I encourage you to skip the quick start and read the description [below](#hystrix-prototype).
 
 1) __Start Mountebank:__
 
