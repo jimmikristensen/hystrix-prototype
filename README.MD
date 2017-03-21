@@ -2,32 +2,32 @@
 
 If this is the first time you set up this prototype, I encourage you to skip the quick start and read the description below.
 
-1) Start Mountebank:
+1) __Start Mountebank:__
 
 ```bash
 docker run -p 2525:2525 -p 4545:4545 -p 4546:4546 -d jkris/mountebank:latest --allowInjection
 ```
-2) Configure Mountebank imposters:
+2) __Configure Mountebank imposters:__
 
 ```bash
 cd mountebank_config/curl
 curl -X PUT -d @initial_setup.json http://localhost:2525/imposters
 ```
 
-3) Start the Hystrix Dashboard:
+3) __Start the Hystrix Dashboard:__
 
 ```bash
 docker run -d -p 8081:9002 --name hystrix-dashboard mlabouardy/hystrix-dashboard:latest
 ```
 
-4) Start the prototype application:
+4) __Start the prototype application:__
 
 ```bash
 cd Prototype
 ./gradlew jettyRun
 ```
 
-5) Putting load on the prototype:
+5) __Putting load on the prototype:__
 
 ```bash
 ab -n 2000 -c 10 http://localhost:8080/HystrixPrototype/v1/hello
