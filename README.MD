@@ -216,6 +216,11 @@ Time  : Server time is 15:54:13
 Quote : Program testing can be used to show the presence of bugs, but never to show their absence! - Edsger Dijkstra
 ```
 
+* __Quites command secceded__ shows _true_ if the Hystrix command requesting the Quites service stub succeeded and _false_ if the request failed and the command returned the fallback message.
+* __Time command succeded__ acts like above but for the Time service stub.
+* __Time__ displays the message being returned by the Time service stub or the fallback.
+* __Quote__ acts like above but for the Quites service stub.
+
 ## Putting load on the prototype application
 
 Now that the Hystrix Dashboard and Mountebank stubs are in place and you have the prototype running on a Jetty server, it's time to add some load on the application.
