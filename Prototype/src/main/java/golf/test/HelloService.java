@@ -18,7 +18,7 @@ import golf.test.cmd.QuotesHttpRequestCommand;
 import golf.test.cmd.TimeHttpRequestCommand;
 
 @Path("/hello")
-public class Endpoint {
+public class HelloService {
 
 	@Inject
 	CloseableHttpClient httpClient;
@@ -32,18 +32,23 @@ public class Endpoint {
 		String timeReq = null;
 		
 		try {
-			HystrixCommand<String> cmd = new QuotesHttpRequestCommand(httpClient);
-			quoteReq = cmd.execute();
-			if (cmd.isSuccessfulExecution() == false) {
-				// If needed we can check if execution went well..
-				// Should be used for optimization of flow - not errorhandling.
+			
+			// command handling the HTTP request sent to the Quotes service stub
+			HystrixCommand<String> quotesCmd = new QuotesHttpRequestCommand(httpClient);
+			quoteReq = quotesCmd.execute();
+			if (quotesCmd.isSuccessfulExecution() == false) {
+				// If needed we can check if execution went well.
+				// Should be used for optimization of flow - not error handling.
 				// Hystrix fallback should handle errors.
-				// System.out.println(cmd.getExecutionException());
+				// quotesCmd.getExecutionException() can be used to get the exception 
+				// that caused command to fail.
 				quotesCommandSucceded = false;
 			}
-			HystrixCommand<String> cmd1 = new TimeHttpRequestCommand(httpClient);
-			timeReq = cmd1.execute();
-			if (cmd1.isSuccessfulExecution() == false) {
+			
+			// command handling the HTTP request sent to the Time service stub
+			HystrixCommand<String> timeCmd = new TimeHttpRequestCommand(httpClient);
+			timeReq = timeCmd.execute();
+			if (timeCmd.isSuccessfulExecution() == false) {
 				timeCommandSucceded = false;
 			}
 
@@ -56,6 +61,7 @@ public class Endpoint {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
 		
+		// generate the response message
 		String reply = String.format("%-24s: %b\n%-24s: %b\n%-6s: %s\n%-6s: %s\n", 
 				"Quotes command secceded",
 				quotesCommandSucceded, 
@@ -65,6 +71,8 @@ public class Endpoint {
 				timeReq, 
 				"Quote",
 				quoteReq);
+		
+		// return the response in the body of the 200 OK message
 		return Response.ok(reply, MediaType.TEXT_PLAIN_TYPE).build();
 	}
 

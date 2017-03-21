@@ -19,41 +19,50 @@ import com.netflix.hystrix.HystrixThreadPoolProperties;
 
 public class TimeHttpRequestCommand extends HystrixCommand<String> {
 
-	//Name of the command - shown in the hystrix dashboard
+	/* Name of the command - shown in the hystrix dashboard */
 	public static final String CMD_NAME = "Command2";
 	
-	//Endpoint which the command should access (Downstream service)
+	/* Endpoint which the command should access (Downstream service) */
 	public static final String CLIENT_ENDPOINT = "http://localhost:4546/time";
 	
-	//Thread pool size for handling command requests
+	/* Thread pool size for handling command requests */
 	public static final int THREAD_POOL_SIZE = 15;
 		
-	//Allowed execution time before hystrix aborts the command
+	/* Allowed execution time before hystrix aborts the command */
 	public static final int ALLOWED_EXC_TIME_MS = 1500;
 
-	// The HTTP client
+	/* The HTTP client */
 	private CloseableHttpClient client;
 	
 	public TimeHttpRequestCommand(CloseableHttpClient client) {
-		super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey(CMD_NAME+"-Pool"))
+		super(Setter
+				.withGroupKey(HystrixCommandGroupKey.Factory.asKey(CMD_NAME+"-Pool"))
 				.andCommandKey(HystrixCommandKey.Factory.asKey(CMD_NAME))
 				.andThreadPoolPropertiesDefaults(
-						HystrixThreadPoolProperties.Setter().withCoreSize(THREAD_POOL_SIZE))
+						HystrixThreadPoolProperties.Setter()
+						.withCoreSize(THREAD_POOL_SIZE))
 				.andCommandPropertiesDefaults(
-						HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(ALLOWED_EXC_TIME_MS)));
+						HystrixCommandProperties.Setter()
+						.withExecutionTimeoutInMilliseconds(ALLOWED_EXC_TIME_MS)));
 		
 		this.client = client;
 	}
 
+	/*
+	 * This method will be executed when execute() is invoked
+	 * It sends a HTTP request to the Time DOC and returns the response
+	 * @see com.netflix.hystrix.HystrixCommand#run()
+	 */
 	@Override
 	protected String run() throws Exception {
 		HttpGet get = new HttpGet(CLIENT_ENDPOINT);
 		String stringResponse = "";
 
+		// Execute the HTTP request
 		CloseableHttpResponse response = client.execute(get);
 		try {			
-			//Here we could do something useful with the response, but
-			//this is only a prototype, and server does not return anything useful.
+			// Get the response from the Time service stub returned by the 
+			// Mountebank imposter and parse it as a String
 			HttpEntity entity = response.getEntity();
 			stringResponse = EntityUtils.toString(entity, "UTF-8");
 			
@@ -66,12 +75,20 @@ public class TimeHttpRequestCommand extends HystrixCommand<String> {
 				System.out.println("failed closing response. " + ioe.getMessage());
 			}
 		}
-
+		
+		// return the response from the DOC
 		return "Server time is "+stringResponse;
 	}
 
+	/*
+	 * If the command fails by run() throwing any kind of exception 
+	 * the command will fallback and return the string in this method
+	 * @see com.netflix.hystrix.HystrixCommand#getFallback()
+	 */
 	@Override
 	protected String getFallback() {
+		// Instead of getting the time from the Time service stub 
+		// get the local time and return that
 		DateFormat df = new SimpleDateFormat("HH:mm:ss");
 		Date currentDate = new Date();
 		return "Local time is "+df.format(currentDate);

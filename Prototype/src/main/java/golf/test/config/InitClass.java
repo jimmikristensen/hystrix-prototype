@@ -23,15 +23,15 @@ public class InitClass implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent arg0) {
 		// shutdown all thread pools; waiting a little time for shutdown
 		Hystrix.reset(1, TimeUnit.SECONDS);	
-		// shutdown configuration listeners that might have been activated by
-		// Archaius
+		
+		// shutdown configuration listeners that might have been activated by Archaius
 		if (ConfigurationManager.getConfigInstance() instanceof DynamicConfiguration) {
-		    ((DynamicConfiguration) ConfigurationManager.getConfigInstance())
-		            .stopLoading();
+		    ((DynamicConfiguration) ConfigurationManager.getConfigInstance()).stopLoading();
+		    
 		} else if (ConfigurationManager.getConfigInstance() instanceof ConcurrentCompositeConfiguration) {
 		    ConcurrentCompositeConfiguration config =
-		            ((ConcurrentCompositeConfiguration) ConfigurationManager
-		                    .getConfigInstance());
+		            ((ConcurrentCompositeConfiguration) ConfigurationManager.getConfigInstance());
+		    
 		    for (AbstractConfiguration innerConfig : config.getConfigurations()) {
 		        if (innerConfig instanceof DynamicConfiguration) {
 		            ((DynamicConfiguration) innerConfig).stopLoading();
