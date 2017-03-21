@@ -293,14 +293,11 @@ Now rerun the test from before and take a look at the Dashboard. This time you w
 
 ## Important settings
 
-_QuotesHttpRequestCommand.java_ and _TimeHttpRequestCommand.java: 
-contains settings for the circuit breakers and url to the imposters in mountebank
+* The __QuotesHttpRequestCommand.java__ and __TimeHttpRequestCommand.java__ classes inherits form _HystrixCommand_ and are responsible for sending the HTTP requests to the DOC (Mountebank stubs) and for performing the _fallback_ in case the HTTP request fails. They also contain settings for the circuit breakers and URL to the DOC.
 
-PoolingConnectionManager
-Contains thread pool settings for the HTTP client library
+* __PoolingConnectionManager.java__ contains thread pool settings for the HTTP client library used in the HystrixCommand classes.
 
-CloseableHttpClientFactory
-Contains timeout values for the HTTP client used for accessing the imposters
+* __CloseableHttpClientFactory.java__ contains timeout values for the HTTP client used for accessing the DOC in the HystrixCommand classes.
 
 # References
 
