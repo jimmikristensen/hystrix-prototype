@@ -1,3 +1,38 @@
+# Quick Start
+
+If this is the first time you set up this prototype, I encourage you to skip the quick start and read the description below.
+
+1) Start Mountebank:
+
+```bash
+docker run -p 2525:2525 -p 4545:4545 -p 4546:4546 -d jkris/mountebank:latest --allowInjection
+```
+2) Configure Mountebank imposters:
+
+```bash
+cd mountebank_config/curl
+curl -X PUT -d @initial_setup.json http://localhost:2525/imposters
+```
+
+3) Start the Hystrix Dashboard:
+
+```bash
+docker run -d -p 8081:9002 --name hystrix-dashboard mlabouardy/hystrix-dashboard:latest
+```
+
+4) Start the prototype application:
+
+```bash
+cd Prototype
+./gradlew jettyRun
+```
+
+5) Putting load on the prototype:
+
+```bash
+ab -n 2000 -c 10 http://localhost:8080/HystrixPrototype/v1/hello
+```
+
 # Hystrix Prototype
 
 The purpose of this prototype is to gain experience with Hystrix as a circuit breaker pattern in distributed architecture. We achieve this by:
@@ -6,9 +41,9 @@ The purpose of this prototype is to gain experience with Hystrix as a circuit br
 2. Using Mountebank to control latency of downstream services.
 3. Using JMeter or Apache Benchmark to put load on the prototype.
 
-The prototype is a very basic implementation of a web application, which uses Hystrix Commands to wrap HTTP requests. The web server exposes Hystrix metrics which can be used for monitoring the HTTP requests and the state of the circuit breaker in a Hystrix dashboard.
+The prototype is a very basic implementation of a web application, which uses Hystrix Commands to wrap HTTP requests. The web server exposes Hystrix metrics which can be used for monitoring the HTTP requests and the state of the circuit breaker in a Hystrix Dashboard.
 
-The Hystrix commands will execute 2 HTTP GET requests to two different URLs, which should be controlled by mountebank and can be manipulated by sending HTTP requests to the mountebank server.
+The Hystrix commands will execute 2 HTTP GET requests to two different URLs, which should be controlled by Mountebank and can be manipulated by sending HTTP requests to the Mountebank server.
 
 The following sections will explain the setup of the specific components.
 
@@ -121,8 +156,6 @@ You should now have a _HystrixPrototype_ project in the project explorer.
 
 ## Running the prototype Java application
 
-The project can be run with Tomcat or Jetty. This guide uses Jetty.
-
 The prototype application can be run from within __eclipse__ or from the __command line__ using gradle.
 
 ### Running from Eclipse
@@ -178,7 +211,7 @@ Quote : Program testing can be used to show the presence of bugs, but never to s
 
 ## Putting load on the prototype application
 
-Now that the Hystrix dashboard and Mountebank stubs are in place and you can run the project on a Jetty server, lets try it all together.
+Now that the Hystrix Dashboard and Mountebank stubs are in place and you have the prototype running on a Jetty server, it's time to add some load on the application.
 
 ### Monitor circuit health through the dashboard
 
@@ -193,7 +226,7 @@ Click the _Monitor Stream_ button. Try sending some requests to the prototype UR
 
 > If you see the message _Unable to connect to Command Metric Stream._ try sending a few requests to the prototype application __(/v1/hello)__ as it does not start the stream before the first request has been received. If it is still not working, your application might not be started or you added the wrong hystrix.stream URL.
 
-### Adding load on the prototype
+### Putting load on the prototype
 
 To put load on the prototype use Apache Benchmark or JMeter.
 
