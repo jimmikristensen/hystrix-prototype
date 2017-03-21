@@ -37,7 +37,7 @@ Add the hystrix stream: http://<ip_address_of_host_machine>:8080/HystrixPrototyp
 ab -n 2000 -c 10 http://localhost:8080/HystrixPrototype/v1/hello
 ```
 
-Watch the Dashboard to see the requests going through. Go to [Simulating slow response from the DOC](simulating-slow-response-from-the-doc) for further testing.
+Watch the Dashboard to see the requests going through. Go to [Simulating slow response from the DOC](#simulating-slow-response-from-the-doc) for further testing.
 
 # Hystrix Prototype
 
