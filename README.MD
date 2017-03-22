@@ -304,6 +304,8 @@ Now rerun the test from before and take a look at the Dashboard. This time you w
 
 * __CloseableHttpClientFactory.java__ contains timeout values for the HTTP client used for accessing the DOC in the HystrixCommand classes.
 
+WEB.XML
+
 # References
 
 * Eclipse [https://eclipse.org/](https://eclipse.org/)
