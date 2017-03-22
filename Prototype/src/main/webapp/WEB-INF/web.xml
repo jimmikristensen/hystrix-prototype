@@ -5,28 +5,39 @@
 	version="3.0">
 	<display-name>Hystrix Prototype</display-name>
 	
+	<!-- Sets up a metrics stream for the Hystrix Dashboard -->
 	<servlet>
 		<display-name>HystrixMetricsStreamServlet</display-name>
 		<servlet-name>HystrixMetricsStreamServlet</servlet-name>
 		<servlet-class>com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet</servlet-class>
 	</servlet>
+	
+	<!-- Sets up the servlet container for the prototype -->
 	<servlet>
 		<servlet-name>Jersey REST Service</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		
+		<!-- Provide the application config for the Jersey application -->
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
 			<param-value>golf.test.config.ApplicationConfig</param-value>
 		</init-param>
+		
+		<!-- Provide the package to look for services -->
 		<init-param>
 			<param-name>jersey.config.server.provider.packages</param-name>
 			<param-value>golf.test</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
+	<!-- Servlet mapping for the prototype application -->
 	<servlet-mapping>
 		<servlet-name>Jersey REST Service</servlet-name>
 		<url-pattern>/v1/*</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Servlet mapping for the metrics stream used by Hystrix Dashboard -->
 	<servlet-mapping>
 		<servlet-name>HystrixMetricsStreamServlet</servlet-name>
 		<url-pattern>/hystrix.stream</url-pattern>
