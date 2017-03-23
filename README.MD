@@ -44,7 +44,7 @@ Watch the Dashboard to see the requests going through. Go to [Simulating slow re
 The purpose of this prototype is to gain experience with Hystrix as a circuit breaker pattern in distributed architecture. We achieve this by:
 
 1. Wrapping HTTP calls to downstream services in Hystrix commands.
-2. Using Mountebank to control latency of downstream services.
+2. Using Mountebank to control latency of downstream services (dependent-on components).
 3. Using JMeter or Apache Benchmark to put load on the prototype.
 
 The prototype is a very basic implementation of a web application, which uses Hystrix Commands to wrap HTTP requests. The web server exposes Hystrix metrics which can be used for monitoring the HTTP requests and the state of the circuit breaker in a Hystrix Dashboard.
@@ -73,7 +73,7 @@ This guide assumes that the developer has knowledge about eclipse and project ha
 
 ## Setting up and configuring Mountebank:
 
-A docker image can be used for setting up the Mountebank server:
+We use Mountebank imposters to simulate real dependent-on components (DOC) to the prototype. A docker image can be used for setting up the Mountebank server:
 
 ```bash
 docker run -p 2525:2525 -p 4545:4545 -p 4546:4546 -d jkris/mountebank:latest --allowInjection
@@ -275,7 +275,7 @@ Run the test using one of the methods described above while you watch Hystrix Da
 
 ### Simulating slow response from the DOC
 
-Now that everything is set up and we are able to put load on the prototype, it's time to simulate slow response from the dependent-on components (DOC).
+Now that everything is set up and we are able to put load on the prototype, it's time to simulate slow response from the DOCs.
 
 To simulate slow response from the two DOC send a PUT using Postman or CURL. This will configure the DOC stubs to have a latency of 1500 milliseconds.
 
