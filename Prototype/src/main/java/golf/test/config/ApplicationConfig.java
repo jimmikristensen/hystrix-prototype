@@ -5,7 +5,7 @@ import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.process.internal.RequestScoped;
 import org.glassfish.jersey.server.ResourceConfig;
 
-import golf.test.HelloService;
+import golf.test.PrototypeService;
 
 /*
  * This is the configuration for this Jersey web service
@@ -20,7 +20,7 @@ public class ApplicationConfig extends ResourceConfig {
 
 	private void registerRESTServices() {
 		// Register HelloService to tell Jersey that this is a web service class 
-		register(HelloService.class);
+		register(PrototypeService.class);
 	}
 
 	private void registerBinders() {

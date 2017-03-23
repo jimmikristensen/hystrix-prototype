@@ -18,7 +18,7 @@ import golf.test.cmd.QuotesHttpRequestCommand;
 import golf.test.cmd.TimeHttpRequestCommand;
 
 @Path("/hello")
-public class HelloService {
+public class PrototypeService {
 
 	@Inject
 	CloseableHttpClient httpClient;
