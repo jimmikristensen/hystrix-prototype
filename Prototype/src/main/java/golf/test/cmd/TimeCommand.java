@@ -20,7 +20,7 @@ import com.netflix.hystrix.HystrixThreadPoolProperties;
 public class TimeCommand extends HystrixCommand<String> {
 
 	/* Name of the command - shown in the hystrix dashboard */
-	public static final String CMD_NAME = "Command2";
+	public static final String CMD_NAME = "TimeCommand";
 	
 	/* Endpoint which the command should access (Downstream service) */
 	public static final String CLIENT_ENDPOINT = "http://localhost:4546/time";
@@ -34,6 +34,10 @@ public class TimeCommand extends HystrixCommand<String> {
 	/* The HTTP client */
 	private CloseableHttpClient client;
 	
+	/*
+	 * Configuration of the command
+     * @see https://github.com/Netflix/Hystrix/wiki/Configuration
+	 */
 	public TimeCommand(CloseableHttpClient client) {
 		super(Setter
 				.withGroupKey(HystrixCommandGroupKey.Factory.asKey(CMD_NAME+"-Pool"))

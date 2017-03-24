@@ -20,6 +20,9 @@ import golf.test.cmd.TimeCommand;
 @Path("/hello")
 public class PrototypeService {
 
+    /*
+     * Injected http client, see the ApplicationConfig class for the binding
+     */
 	@Inject
 	CloseableHttpClient httpClient;
 

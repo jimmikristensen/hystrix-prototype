@@ -17,7 +17,7 @@ import com.netflix.hystrix.HystrixThreadPoolProperties;
 public class QuotesCommand extends HystrixCommand<String> {
 
 	/* Name of the command - shown in the hystrix dashboard */
-	public static final String CMD_NAME = "Command1";
+	public static final String CMD_NAME = "QuotesCommand";
 	
 	/* Endpoint which the command should access (Downstream service) */
 	public static final String CLIENT_ENDPOINT = "http://localhost:4545/quotes";
@@ -31,6 +31,10 @@ public class QuotesCommand extends HystrixCommand<String> {
 	/* The HTTP client */
 	private CloseableHttpClient client;
 	
+	/*
+     * Configuration of the command
+     * @see https://github.com/Netflix/Hystrix/wiki/Configuration
+     */
 	public QuotesCommand(CloseableHttpClient client) {
 		super(Setter
 				.withGroupKey(HystrixCommandGroupKey.Factory.asKey(CMD_NAME+"-Pool"))
