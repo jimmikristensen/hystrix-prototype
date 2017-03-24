@@ -14,7 +14,7 @@ import com.netflix.hystrix.HystrixCommandKey;
 import com.netflix.hystrix.HystrixCommandProperties;
 import com.netflix.hystrix.HystrixThreadPoolProperties;
 
-public class QuotesHttpRequestCommand extends HystrixCommand<String> {
+public class QuotesCommand extends HystrixCommand<String> {
 
 	/* Name of the command - shown in the hystrix dashboard */
 	public static final String CMD_NAME = "Command1";
@@ -31,7 +31,7 @@ public class QuotesHttpRequestCommand extends HystrixCommand<String> {
 	/* The HTTP client */
 	private CloseableHttpClient client;
 	
-	public QuotesHttpRequestCommand(CloseableHttpClient client) {
+	public QuotesCommand(CloseableHttpClient client) {
 		super(Setter
 				.withGroupKey(HystrixCommandGroupKey.Factory.asKey(CMD_NAME+"-Pool"))
 				.andCommandKey(HystrixCommandKey.Factory.asKey(CMD_NAME))

@@ -14,8 +14,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.exception.HystrixRuntimeException;
 
-import golf.test.cmd.QuotesHttpRequestCommand;
-import golf.test.cmd.TimeHttpRequestCommand;
+import golf.test.cmd.QuotesCommand;
+import golf.test.cmd.TimeCommand;
 
 @Path("/hello")
 public class PrototypeService {
@@ -34,7 +34,7 @@ public class PrototypeService {
 		try {
 			
 			// command handling the HTTP request sent to the Quotes service stub
-			HystrixCommand<String> quotesCmd = new QuotesHttpRequestCommand(httpClient);
+			HystrixCommand<String> quotesCmd = new QuotesCommand(httpClient);
 			quoteReq = quotesCmd.execute();
 			if (quotesCmd.isSuccessfulExecution() == false) {
 				// If needed we can check if execution went well.
@@ -46,7 +46,7 @@ public class PrototypeService {
 			}
 			
 			// command handling the HTTP request sent to the Time service stub
-			HystrixCommand<String> timeCmd = new TimeHttpRequestCommand(httpClient);
+			HystrixCommand<String> timeCmd = new TimeCommand(httpClient);
 			timeReq = timeCmd.execute();
 			if (timeCmd.isSuccessfulExecution() == false) {
 				timeCommandSucceded = false;

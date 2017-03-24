@@ -298,19 +298,17 @@ Now rerun the test from before and take a look at the Dashboard. This time you w
 
 ## Important files
 
-* The __QuotesHttpRequestCommand.java__ and __TimeHttpRequestCommand.java__ classes inherits form _HystrixCommand_ and are responsible for sending the HTTP requests to the DOC (Mountebank stubs) and for performing the _fallback_ in case the HTTP request fails. They also contain settings for the circuit breakers and URL to the DOC.
+* The __QuotesCommand.java__ and __TimeCommand.java__ classes inherits form _HystrixCommand_ and are responsible for sending the HTTP requests to the DOC (Mountebank stubs) and for performing the _fallback_ in case the HTTP request fails. They also contain settings for the circuit breakers and URL to the DOC.
 
 * __PoolingConnectionManager.java__ contains thread pool settings for the HTTP client library used in the HystrixCommand classes.
 
 * __CloseableHttpClientFactory.java__ contains timeout values for the HTTP client used for accessing the DOC in the HystrixCommand classes.
 
-* The __web.xml__ is located in the _webapp_ directory and contains the servlets being loaded by the web server and on which URI path the servlets should handle requests from. The Hystrix matrics stream and prototype application servlets are defined in this file.  
+* The __web.xml__ is located in the _webapp_ directory and contains the servlets being loaded by the web server and on which URI path the servlets should handle requests from. The Hystrix matrics stream and prototype application servlets are defined in this file.
 
-WEB.XML
+## Hystrix command sequence
 
-## Sequence
-
-![Sequence diagram](sequence.png "Sequence")
+![Sequence diagram](sequence.png "Hystrix command sequence")
 
 # References
 
