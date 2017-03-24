@@ -277,7 +277,7 @@ Run the test using one of the methods described above while you watch Hystrix Da
 
 Now that everything is set up and we are able to put load on the prototype, it's time to simulate slow response from the DOCs.
 
-To simulate slow response from the two DOC send a PUT using Postman or CURL. This will configure the DOC stubs to have a latency of 1500 milliseconds.
+To simulate slow response from the two DOC send a PUT using Postman or CURL. This will configure the DOC stubs to with a latency of 1500 milliseconds.
 
 #### Using Postman
 
