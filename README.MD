@@ -308,6 +308,10 @@ Now rerun the test from before and take a look at the Dashboard. This time you w
 
 WEB.XML
 
+## Sequence
+
+![Sequence diagram](sequence.png "Sequence")
+
 # References
 
 * Eclipse [https://eclipse.org/](https://eclipse.org/)
